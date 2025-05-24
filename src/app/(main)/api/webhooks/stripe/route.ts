@@ -9,7 +9,7 @@ import {
 
 export async function POST(req: Request) {
   const body = await req.text();
-  const signature = headers().get("Stripe-Signature") as string;
+  const signature = (await headers()).get("Stripe-Signature") as string;
 
   let event: Stripe.Event;
 
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       stripeSubscriptionId: subscription.id,
       stripeCustomerId: subscription.customer as string,
       stripePriceId: subscription.items.data[0]?.price.id,
-      stripeCurrentPeriodEnd: new Date(subscription.current_period_end * 1000),
+      stripeCurrentPeriodEnd: new Date(subscription.items.data[0]?.current_period_end * 1000),
     });
   } else if (
     ["customer.subscription.created", "customer.subscription.updated"].includes(
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     await updateSubscriptionUseCase({
       stripePriceId: subscription.items.data[0]?.price.id,
       stripeSubscriptionId: subscription.id,
-      stripeCurrentPeriodEnd: new Date(subscription.current_period_end * 1000),
+      stripeCurrentPeriodEnd: new Date(subscription.items.data[0]?.current_period_end * 1000),
     });
   }
 

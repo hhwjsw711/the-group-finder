@@ -22,24 +22,25 @@ import { Button } from "@/components/ui/button";
 import { changePasswordAction } from "./actions";
 import { LoaderButton } from "@/components/loader-button";
 import { useServerAction } from "zsa-react";
+import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
-const registrationSchema = z
-  .object({
-    password: z.string().min(8),
-    token: z.string(),
-    passwordConfirmation: z.string().min(8),
-  })
-  .refine((data) => data.password === data.passwordConfirmation, {
-    message: "Passwords don't match",
-    path: ["passwordConfirmation"],
-  });
+export default function ResetPasswordPage() {
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token") || "";
+  const t = useTranslations("auth");
 
-export default async function ResetPasswordPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ token: string }>;
-}) {
-  const { token } = await searchParams;
+  const registrationSchema = z
+    .object({
+      password: z.string().min(8),
+      token: z.string(),
+      passwordConfirmation: z.string().min(8),
+    })
+    .refine((data) => data.password === data.passwordConfirmation, {
+      message: t("passwordsDontMatch"),
+      path: ["passwordConfirmation"],
+    });
+
   const form = useForm<z.infer<typeof registrationSchema>>({
     resolver: zodResolver(registrationSchema),
     defaultValues: {
@@ -64,18 +65,18 @@ export default async function ResetPasswordPage({
       {isSuccess && (
         <>
           <h1 className={cn(pageTitleStyles, "text-center")}>
-            Password Updated
+            {t("passwordUpdated")}
           </h1>
           <Alert variant="success">
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Password updated</AlertTitle>
+            <AlertTitle>{t("passwordUpdated")}</AlertTitle>
             <AlertDescription>
-              Your password has been successfully updated.
+              {t("passwordUpdatedDescription")}
             </AlertDescription>
           </Alert>
 
           <Button variant="default" asChild className="w-full">
-            <Link href="/sign-in/email">Login with New Password</Link>
+            <Link href="/sign-in/email">{t("loginWithNewPassword")}</Link>
           </Button>
         </>
       )}
@@ -83,13 +84,13 @@ export default async function ResetPasswordPage({
       {!isSuccess && (
         <>
           <h1 className={cn(pageTitleStyles, "text-center")}>
-            Change Password
+            {t("changePassword")}
           </h1>
 
           {error && (
             <Alert variant="destructive">
               <Terminal className="h-4 w-4" />
-              <AlertTitle>Uh-oh, something went wrong</AlertTitle>
+              <AlertTitle>{t("somethingWentWrong")}</AlertTitle>
               <AlertDescription>{error.message}</AlertDescription>
             </Alert>
           )}
@@ -101,12 +102,12 @@ export default async function ResetPasswordPage({
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
                         className="w-full"
-                        placeholder="Enter your new password"
+                        placeholder={t("enterNewPassword")}
                         type="password"
                       />
                     </FormControl>
@@ -120,12 +121,12 @@ export default async function ResetPasswordPage({
                 name="passwordConfirmation"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Confirm Password</FormLabel>
+                    <FormLabel>{t("confirmPassword")}</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
                         className="w-full"
-                        placeholder="Enter Confirm your Password"
+                        placeholder={t("enterConfirmPassword")}
                         type="password"
                       />
                     </FormControl>
@@ -139,7 +140,7 @@ export default async function ResetPasswordPage({
                 className="w-full"
                 type="submit"
               >
-                Change Password
+                {t("changePassword")}
               </LoaderButton>
             </form>
           </Form>

@@ -6,7 +6,15 @@
     "browseRooms": "Browse Rooms",
     "apiDocs": "API Docs",
     "features": "Features",
-    "pricing": "Pricing"
+    "pricing": "Pricing",
+    "notifications": {
+      "title": "Notifications",
+      "noNotifications": "No new notifications",
+      "viewNotifications": "View Notifications"
+    },
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "settings": "Settings"
   },
   "hero": {
     "badge": "Discover like-minded individuals",
@@ -14,5 +22,17 @@
     "description": "Our online service makes it easy to connect with others who share your interests, whether it's hiking, painting, or playing soccer. Create or join a group, schedule meetups, and enjoy pursuing your passions with new friends by your side. Start building your community today!",
     "viewButton": "View Dashboard",
     "createButton": "Create an Account"
+  },
+  "auth": {
+    "passwordUpdated": "Password Updated",
+    "passwordUpdatedDescription": "Your password has been successfully updated.",
+    "loginWithNewPassword": "Login with New Password",
+    "changePassword": "Change Password",
+    "somethingWentWrong": "Uh-oh, something went wrong",
+    "password": "Password",
+    "enterNewPassword": "Enter your new password",
+    "confirmPassword": "Confirm Password",
+    "enterConfirmPassword": "Enter Confirm your Password",
+    "passwordsDontMatch": "Passwords don't match"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "header": {
+    "yourGroups": "你的小组",
+    "browseGroups": "浏览小组",
+    "yourRooms": "你的房间",
+    "browseRooms": "浏览房间",
+    "apiDocs": "API 文档",
+    "features": "功能",
+    "pricing": "定价"
+  },
+  "hero": {
+    "badge": "发现志同道合的人",
+    "title": "创建和发现新的兴趣小组",
+    "description": "我们的在线服务让你轻松与志同道合的人建立联系，无论是徒步旅行、绘画还是踢足球。创建或加入小组，安排聚会，与新朋友一起享受你的爱好。今天就开始建立你的社区吧！",
+    "viewButton": "查看仪表板",
+    "createButton": "创建一个账户"
+  }
+}

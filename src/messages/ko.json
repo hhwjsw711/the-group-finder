@@ -1,0 +1,18 @@
+{
+  "header": {
+    "yourGroups": "Your Groups",
+    "browseGroups": "Browse Groups",
+    "yourRooms": "Your Rooms",
+    "browseRooms": "Browse Rooms",
+    "apiDocs": "API Docs",
+    "features": "Features",
+    "pricing": "Pricing"
+  },
+  "hero": {
+    "badge": "Discover like-minded individuals",
+    "title": "Create and Discover New Hobby Groups",
+    "description": "Our online service makes it easy to connect with others who share your interests, whether it's hiking, painting, or playing soccer. Create or join a group, schedule meetups, and enjoy pursuing your passions with new friends by your side. Start building your community today!",
+    "viewButton": "View Dashboard",
+    "createButton": "Create an Account"
+  }
+}

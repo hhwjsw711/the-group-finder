@@ -1,5 +1,5 @@
 import "server-only";
-import { AuthenticationError } from "@/app/(main)/util";
+import { AuthenticationError } from "@/app/[locale]/(main)/util";
 import { createSession, generateSessionToken, validateRequest } from "@/auth";
 import { cache } from "react";
 import { cookies } from "next/headers";

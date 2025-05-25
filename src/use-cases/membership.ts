@@ -1,4 +1,4 @@
-import { NotFoundError } from "@/app/(main)/util";
+import { NotFoundError } from "@/app/[locale]/(main)/util";
 import { getGroupById, getGroupsByUser } from "@/data-access/groups";
 import {
   addMembership,

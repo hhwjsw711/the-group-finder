@@ -1,6 +1,7 @@
 import { applicationName, companyName } from "@/app-config";
 import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
+import { ChangeLanguage } from "./change-language";
 
 export function Footer() {
   return (
@@ -43,8 +44,9 @@ export function Footer() {
               </ul>
             </div>
           </div>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex justify-center gap-4">
             <ModeToggle />
+            <ChangeLanguage />
           </div>
         </div>
       </footer>

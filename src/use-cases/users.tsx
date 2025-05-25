@@ -31,8 +31,8 @@ import {
   getProfile,
   updateProfile,
 } from "@/data-access/profiles";
-import { GoogleUser } from "@/app/(main)/api/login/google/callback/route";
-import { GitHubUser } from "@/app/(main)/api/login/github/callback/route";
+import { GoogleUser } from "@/app/[locale]/(main)/api/login/google/callback/route";
+import { GitHubUser } from "@/app/[locale]/(main)/api/login/github/callback/route";
 import { sendEmail } from "@/lib/send-email";
 import {
   createPasswordResetToken,

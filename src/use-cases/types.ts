@@ -3,6 +3,8 @@ export type Role = "owner" | "admin" | "member";
 
 export type UserId = number;
 
+export type RoomId = number;
+
 export type UserProfile = {
   id: UserId;
   name: string | null;

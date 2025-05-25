@@ -42,6 +42,26 @@ export function HeaderLinks({ isAuthenticated }: { isAuthenticated: boolean }) {
             asChild
             className="flex items-center justify-center gap-2"
           >
+            <Link href={"/your-rooms"}>
+              <UsersIcon className="w-4 h-4" /> Your Rooms
+            </Link>
+          </Button>
+
+          <Button
+            variant={"link"}
+            asChild
+            className="flex items-center justify-center gap-2"
+          >
+            <Link href={"/browse-rooms"}>
+              <SearchIcon className="w-4 h-4" /> Browse Rooms
+            </Link>
+          </Button>
+
+          <Button
+            variant={"link"}
+            asChild
+            className="flex items-center justify-center gap-2"
+          >
             <Link href={"/docs"}>
               <BookIcon className="w-4 h-4" /> API Docs
             </Link>
@@ -61,6 +81,10 @@ export function HeaderLinks({ isAuthenticated }: { isAuthenticated: boolean }) {
 
           <Button variant={"link"} asChild>
             <Link href={"/browse"}>Browse Groups</Link>
+          </Button>
+
+          <Button variant={"link"} asChild>
+            <Link href={"/browse-rooms"}>Browse Rooms</Link>
           </Button>
         </div>
       )}

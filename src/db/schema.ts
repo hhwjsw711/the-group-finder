@@ -215,7 +215,6 @@ export const invites = pgTable("gf_invites", {
     .notNull()
     .default(sql`gen_random_uuid()`)
     .unique(),
-  tokenExpiresAt: timestamp("tokenExpiresAt", { mode: "date" }),
   groupId: serial("groupId")
     .notNull()
     .references(() => groups.id, { onDelete: "cascade" }),
@@ -321,6 +320,17 @@ export const followingRelationship = relations(following, ({ one }) => ({
   }),
 }));
 
+export const room = pgTable("gf_room", {
+  id: serial("id").primaryKey(),
+  userId: serial("userId")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  description: text("description"),
+  tags: text("tags").notNull(),
+  githubRepo: text("githubRepo"),
+});
+
 /**
  * TYPES
  *
@@ -352,3 +362,5 @@ export type Following = typeof following.$inferSelect;
 export type GroupId = Group["id"];
 
 export type Session = typeof sessions.$inferSelect;
+
+export type Room = typeof room.$inferSelect;

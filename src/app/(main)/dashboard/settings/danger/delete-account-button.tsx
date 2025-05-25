@@ -39,7 +39,9 @@ export function DeleteAccountButton() {
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
 
-  const form = useForm<z.infer<typeof deleteSchema>>({
+  const form = useForm<{
+    confirm: string;
+  }>({
     resolver: zodResolver(deleteSchema),
     defaultValues: {
       confirm: "",

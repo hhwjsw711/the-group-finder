@@ -9,7 +9,7 @@ import { RoomId } from "@/use-cases/types";
 import { getProfile } from "@/data-access/profiles";
 import { assertAuthenticated } from "@/lib/session";
 
-export default async function RoomPage(props: { params: { roomId: RoomId } }) {
+export default async function RoomPage(props: { params: Promise<{ roomId: RoomId }> }) {
   unstable_noStore();
   const params = await props.params;
   const roomId = params.roomId;

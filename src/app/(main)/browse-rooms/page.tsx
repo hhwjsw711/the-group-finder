@@ -9,9 +9,7 @@ import Image from "next/image";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: {
-    search: string;
-  };
+  searchParams: Promise<{ search?: string }>;
 }) {
   unstable_noStore();
   const params = await searchParams;

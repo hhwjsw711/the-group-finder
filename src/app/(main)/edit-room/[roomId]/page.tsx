@@ -6,7 +6,7 @@ import { RoomId } from "@/use-cases/types";
 export default async function EditRoomPage({
   params,
 }: {
-  params: { roomId: RoomId };
+  params: Promise<{ roomId: RoomId }>;
 }) {
   unstable_noStore();
   const routeParams = await params;

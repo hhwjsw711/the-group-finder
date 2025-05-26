@@ -15,12 +15,14 @@ import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
   search: z.string().min(0).max(50),
 });
 
 export function SearchBar() {
+  const t = useTranslations("browseRooms");
   const router = useRouter();
   const query = useSearchParams();
 
@@ -57,7 +59,7 @@ export function SearchBar() {
                 <Input
                   {...field}
                   className="w-[440px]"
-                  placeholder="Filter rooms by keywords, such as typescript, next.js, python"
+                  placeholder={t("placeholder")}
                 />
               </FormControl>
               <FormMessage />
@@ -66,7 +68,7 @@ export function SearchBar() {
         />
 
         <Button type="submit">
-          <SearchIcon className="mr-2" /> Search
+          <SearchIcon className="mr-2" /> {t("search")}
         </Button>
 
         {query.get("search") && (
@@ -77,7 +79,7 @@ export function SearchBar() {
               router.push("/");
             }}
           >
-            Clear
+            {t("clear")}
           </Button>
         )}
       </form>

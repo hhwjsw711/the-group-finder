@@ -14,8 +14,10 @@ import { Room } from "@/db/schema";
 import { GithubIcon } from "lucide-react";
 import { TagsList } from "@/components/tags-list";
 import { splitTags } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export function RoomCard({ room }: { room: Room }) {
+  const t = useTranslations("browseRooms");
   return (
     <Card>
       <CardHeader>
@@ -32,13 +34,13 @@ export function RoomCard({ room }: { room: Room }) {
             rel="noopener noreferrer"
           >
             <GithubIcon />
-            Github Project
+            {t("githubProject")}
           </Link>
         )}
       </CardContent>
       <CardFooter>
         <Button asChild>
-          <Link href={`/rooms/${room.id}`}>Join Room</Link>
+          <Link href={`/rooms/${room.id}`}>{t("joinRoom")}</Link>
         </Button>
       </CardFooter>
     </Card>

@@ -30,9 +30,109 @@
     "changePassword": "Change Password",
     "somethingWentWrong": "Uh-oh, something went wrong",
     "password": "Password",
+    "enterPassword": "Enter your password",
     "enterNewPassword": "Enter your new password",
     "confirmPassword": "Confirm Password",
     "enterConfirmPassword": "Enter Confirm your Password",
-    "passwordsDontMatch": "Passwords don't match"
+    "passwordsDontMatch": "Passwords don't match",
+    "signIn": "Sign In",
+    "signInDescription": "Sign in to your account using one of the options below.",
+    "signInWithGoogle": "Sign in with Google",
+    "signInWithGitHub": "Sign in with GitHub",
+    "orSignInWithEmail": "Or sign in with email",
+    "otherOptions": "Other options",
+    "signInWithEmail": "Sign in with Email",
+    "email": "Email",
+    "enterEmail": "Enter your email",
+    "signInWithMagicLink": "Sign in with Magic Link",
+    "forgotPassword": "Forgot Password",
+    "createAccount": "Create an account",
+    "letGo": "Let's Go!",
+    "enjoyYourSession": "Enjoy your session",
+    "or": "Or",
+    "sendResetEmail": "Send Reset Email",
+    "resetLinkSent": "Reset Link Sent",
+    "resetLinkSentDescription": "We have sent you an email with a link to reset your password.",
+    "checkYourEmail": "Check your email",
+    "magicLinkSentDescription": "We sent you a magic link to sign in. Click the link in your email to sign in.",
+    "expiredToken": "Expired Token",
+    "expiredTokenDescription": "Sorry, this token was either expired or already used. Please try logging in again",
+    "signUp": "Sign Up"
+  },
+  "pricing": {
+    "simplePricingForEveryone": "Simple pricing for everyone",
+    "chooseThePlanThatSuitYouBest": "Choose the plan that suits you best. Enjoy full access to premium content and expert support. Start your journey today and achieve your goals!",
+    "whatThisPlanIncludes": "What this plan includes:",
+    "goToDashboard": "Go to Dashboard",
+    "upgradeNow": "Upgrade Now",
+    "signInToUpgrade": "Sign in to Upgrade",
+    "month": "Month",
+    "completeNextJsSolution": "Complete Next.js Solution",
+    "stripeIntegration": "Stripe Integration",
+    "userAuthentication": "User Authentication",
+    "userDashboard": "User Dashboard",
+    "roleBasedAuthorization": "Role Based Authorization"
+  },
+  "footer": {
+    "company": "Company",
+    "helpCenter": "Help center",
+    "twitter": "Twitter",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "allRightsReserved": "All Rights Reserved"
+  },
+  "subscribe": {
+    "success": {
+      "title": "You've been upgraded!",
+      "description": "Click below to start using our service",
+      "viewDashboard": "View Dashboard"
+    },
+    "cancel": {
+      "title": "Not interested? No worries at all",
+      "description": "Checkout a free starter kit below until you're ready for the premium starter kit",
+      "checkoutFreeStarterKit": "Checkout my free next.js starter kit",
+      "letLandingPageConvincedYou": "Let my landing page convince you"
+    }
+  },
+  "modeToggle": {
+    "toggleTheme": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "browse": {
+    "title": "Browse Groups",
+    "placeholder": "basketball, programming, crafting, etc.",
+    "search": "Search",
+    "noGroupsMatchingYourSearch": "No groups matching your search"
+  },
+  "browseRooms": {
+    "title": "Browse Rooms",
+    "createRoom": "Create Room",
+    "noRoomsYet": "No Rooms Yet!",
+    "joinRoom": "Join Room",
+    "placeholder": "typescript, next.js, python",
+    "search": "Search",
+    "clear": "Clear",
+    "githubProject": "Github Project"
+  },
+  "createRoom": {
+    "title": "Create Room",
+    "name": "Name",
+    "description": "Description",
+    "githubProject": "Github Project",
+    "tags": "Tags",
+    "submit": "Submit",
+    "roomCreated": "Room Created",
+    "roomCreatedDescription": "Your room was successfully created",
+    "nameDescription": "This is your public room name.",
+    "descriptionDescription": "Please describe what you are be coding on",
+    "githubProjectDescription": "Please put a link to the project you are working on",
+    "tagsDescription": "List your programming languages, frameworks, libraries so people can find you content",
+    "namePlaceholder": "The Group Finder Is Awesome",
+    "descriptionPlaceholder": "Im working on a side project, come join me",
+    "githubProjectPlaceholder": "https://github.com/hhwjsw711/the-group-finder",
+    "tagsPlaceholder": "typescript, nextjs, tailwind"
   }
 }

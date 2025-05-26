@@ -1,18 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { pageTitleStyles } from "@/styles/common";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function MagicLinkPage() {
+  const t = useTranslations("auth");
+
   return (
     <div className="py-24 mx-auto max-w-[400px] space-y-6">
-      <h1 className={pageTitleStyles}>Expired Token</h1>
+      <h1 className={pageTitleStyles}>{t("expiredToken")}</h1>
       <p className="text-xl">
-        Sorry, this token was either expired or already used. Please try logging
-        in again
+        {t("expiredTokenDescription")}
       </p>
 
       <Button asChild>
-        <Link href="/sign-in">Sign In</Link>
+        <Link href="/sign-in">{t("signIn")}</Link>
       </Button>
     </div>
   );

@@ -5,12 +5,14 @@ import { SearchBar } from "./search-bar";
 import { RoomCard } from "./room-card";
 import { unstable_noStore } from "next/cache";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 export default async function Home({
   searchParams,
 }: {
   searchParams: Promise<{ search?: string }>;
 }) {
+  const t = await getTranslations("browseRooms");
   unstable_noStore();
   const params = await searchParams;
   const rooms = await getRooms(params.search);
@@ -18,9 +20,9 @@ export default async function Home({
   return (
     <main className="min-h-screen p-16">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl">Find Dev Rooms</h1>
+        <h1 className="text-4xl">{t("title")}</h1>
         <Button asChild>
-          <Link href="/create-room">Create Room</Link>
+          <Link href="/create-room">{t("createRoom")}</Link>
         </Button>
       </div>
 
@@ -43,10 +45,10 @@ export default async function Home({
             alt="no data image"
           />
 
-          <h2 className="text-2xl">No Rooms Yet!</h2>
+          <h2 className="text-2xl">{t("noRoomsYet")}</h2>
 
           <Button asChild>
-            <Link href="/create-room">Create Room</Link>
+            <Link href="/create-room">{t("createRoom")}</Link>
           </Button>
         </div>
       )}

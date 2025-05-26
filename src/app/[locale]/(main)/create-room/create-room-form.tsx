@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { createRoomAction } from "./actions";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
   name: z.string().min(1).max(50),
@@ -26,6 +27,7 @@ const formSchema = z.object({
 });
 
 export function CreateRoomForm() {
+  const t = useTranslations("createRoom");
   const { toast } = useToast();
 
   const router = useRouter();
@@ -43,8 +45,8 @@ export function CreateRoomForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const room = await createRoomAction(values);
     toast({
-      title: "Room Created",
-      description: "Your room was successfully created",
+      title: t("roomCreated"),
+      description: t("roomCreatedDescription"),
     });
     router.push(`/rooms/${room.id}`);
   }
@@ -57,11 +59,11 @@ export function CreateRoomForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t("name")}</FormLabel>
               <FormControl>
-                <Input {...field} placeholder="Dev Finder Is Awesome" />
+                <Input {...field} placeholder={t("namePlaceholder")} />
               </FormControl>
-              <FormDescription>This is your public room name.</FormDescription>
+              <FormDescription>{t("nameDescription")}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -72,16 +74,14 @@ export function CreateRoomForm() {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Description</FormLabel>
+              <FormLabel>{t("description")}</FormLabel>
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="Im working on a side project, come join me"
+                  placeholder={t("descriptionPlaceholder")}
                 />
               </FormControl>
-              <FormDescription>
-                Please describe what you are be coding on
-              </FormDescription>
+              <FormDescription>{t("descriptionDescription")}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -92,16 +92,14 @@ export function CreateRoomForm() {
           name="githubRepo"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Github Repo</FormLabel>
+              <FormLabel>{t("githubProject")}</FormLabel>
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="https://github.com/webdevcody/dev-finder"
+                  placeholder={t("githubProjectPlaceholder")}
                 />
               </FormControl>
-              <FormDescription>
-                Please put a link to the project you are working on
-              </FormDescription>
+              <FormDescription>{t("githubProjectDescription")}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -112,20 +110,22 @@ export function CreateRoomForm() {
           name="tags"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tags</FormLabel>
+              <FormLabel>{t("tags")}</FormLabel>
               <FormControl>
-                <Input {...field} placeholder="typescript, nextjs, tailwind" />
+                <Input
+                  {...field}
+                  placeholder={t("tagsPlaceholder")}
+                />
               </FormControl>
               <FormDescription>
-                List your programming languages, frameworks, libraries so people
-                can find you content
+                {t("tagsDescription")}
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{t("submit")}</Button>
       </form>
     </Form>
   );

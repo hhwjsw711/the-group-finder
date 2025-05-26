@@ -1,5 +1,5 @@
 import { z } from "zod";
-
+import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -22,11 +22,12 @@ const magicLinkSchema = z.object({
 
 export function MagicLinkForm() {
   const { toast } = useToast();
+  const t = useTranslations("auth")
 
   const { execute, isPending } = useServerAction(signInMagicLinkAction, {
     onError({ err }) {
       toast({
-        title: "Something went wrong",
+        title: t("somethingWentWrong"),
         description: err.message,
         variant: "destructive",
       });
@@ -52,12 +53,12 @@ export function MagicLinkForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t("email")}</FormLabel>
               <FormControl>
                 <Input
                   {...field}
                   className="w-full"
-                  placeholder="Enter your email"
+                  placeholder={t("enterEmail")}
                   type="email"
                 />
               </FormControl>
@@ -66,7 +67,7 @@ export function MagicLinkForm() {
           )}
         />
         <LoaderButton isLoading={isPending} className="w-full" type="submit">
-          Sign in with magic link
+          {t("signInWithMagicLink")}
         </LoaderButton>
       </form>
     </Form>

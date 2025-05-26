@@ -16,12 +16,14 @@ import { GroupPagination } from "./pagination";
 import { Button } from "@/components/ui/button";
 import { XIcon } from "lucide-react";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 export default async function BrowsePage({
   searchParams,
 }: {
   searchParams: Promise<{ search?: string; page?: string }>;
 }) {
+  const t = await getTranslations("browse");
   const params = await searchParams;
   const search = params.search;
   const page = params.page ? parseInt(params.page) : 1;
@@ -34,7 +36,7 @@ export default async function BrowsePage({
             <h1
               className={`${pageTitleStyles} text-2xl sm:text-3xl md:text-4xl`}
             >
-              Browse Groups
+              {t("title")}
             </h1>
 
             <form
@@ -52,7 +54,7 @@ export default async function BrowsePage({
                   <div className="flex relative w-full sm:max-w-md">
                     <Input
                       defaultValue={search}
-                      placeholder="basketball, programming, crafting, etc."
+                      placeholder={t("placeholder")}
                       name="search"
                       id="group"
                       className="w-full"
@@ -71,7 +73,7 @@ export default async function BrowsePage({
                     )}
                   </div>
                   <SubmitButton className="w-full sm:w-auto">
-                    Search
+                    {t("search")}
                   </SubmitButton>
                 </div>
               </div>
@@ -104,6 +106,7 @@ function GroupsListSkeleton() {
 }
 
 async function GroupsList({ search, page }: { search?: string; page: number }) {
+  const t = await getTranslations("browse");
   const { data, perPage, total } = await searchPublicGroupsUseCase(
     search ?? "",
     page
@@ -120,7 +123,7 @@ async function GroupsList({ search, page }: { search?: string; page: number }) {
           className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64"
         />
         <h2 className="text-xl sm:text-2xl text-center">
-          No groups matching your search
+          {t("noGroupsMatchingYourSearch")}
         </h2>
       </div>
     );

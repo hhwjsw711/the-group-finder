@@ -30,9 +30,109 @@
     "changePassword": "更改密码",
     "somethingWentWrong": "哎呀，出了点问题",
     "password": "密码",
+    "enterPassword": "输入你的密码",
     "enterNewPassword": "输入你的新密码",
     "confirmPassword": "确认密码",
     "enterConfirmPassword": "输入确认密码",
-    "passwordsDontMatch": "密码不匹配"
+    "passwordsDontMatch": "密码不匹配",
+    "signIn": "登录",
+    "signInDescription": "使用以下选项之一登录你的账户。",
+    "signInWithGoogle": "使用 Google 登录",
+    "signInWithGitHub": "使用 GitHub 登录",
+    "orSignInWithEmail": "或使用电子邮件登录",
+    "otherOptions": "其他选项",
+    "signInWithEmail": "使用电子邮件登录",
+    "email": "邮件",
+    "enterEmail": "输入你的邮件",
+    "signInWithMagicLink": "使用 Magic Link 登录",
+    "forgotPassword": "忘记密码",
+    "createAccount": "创建账户",
+    "letGo": "开始吧！",
+    "enjoyYourSession": "享受你的会话",
+    "or": "或",
+    "sendResetEmail": "发送重置邮件",
+    "resetLinkSent": "重置链接已发送",
+    "resetLinkSentDescription": "我们已发送一封包含重置密码链接的邮件给你。",
+    "checkYourEmail": "检查你的邮件",
+    "magicLinkSentDescription": "我们发送给你一个 Magic Link 来登录。点击邮件中的链接来登录。",
+    "expiredToken": "过期令牌",
+    "expiredTokenDescription": "抱歉，这个令牌要么过期，要么已经被使用。请再次登录。",
+    "signUp": "注册"
+  },
+  "pricing": {
+    "simplePricingForEveryone": "简单定价，人人适用",
+    "chooseThePlanThatSuitYouBest": "选择最适合你的计划。享受完整的高级内容和专家支持。今天就开始你的旅程，实现你的目标！",
+    "whatThisPlanIncludes": "这个计划包括：",
+    "goToDashboard": "前往仪表板",
+    "upgradeNow": "立即升级",
+    "signInToUpgrade": "登录以升级",
+    "month": "月",
+    "completeNextJsSolution": "完成 Next.js 解决方案",
+    "stripeIntegration": "Stripe 集成",
+    "userAuthentication": "用户认证",
+    "userDashboard": "用户仪表板",
+    "roleBasedAuthorization": "基于角色的授权"
+  },
+  "footer": {
+    "company": "公司",
+    "helpCenter": "帮助中心",
+    "twitter": "推特",
+    "legal": "法律",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "allRightsReserved": "版权所有"
+  },
+  "subscribe": {
+    "success": {
+      "title": "你已经升级了！",
+      "description": "点击下方开始使用我们的服务",
+      "viewDashboard": "查看仪表板"
+    },
+    "cancel": {
+      "title": "不感兴趣？没关系",
+      "description": "点击下方开始使用我们的服务",
+      "checkoutFreeStarterKit": "查看我的免费 Next.js 入门套件",
+      "letLandingPageConvincedYou": "让我的主页说服你"
+    }
+  },
+  "modeToggle": {
+    "toggleTheme": "切换主题",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "跟随系统"
+  },
+  "browse": {
+    "title": "浏览小组",
+    "placeholder": "篮球, 编程, 手工艺, 等等",
+    "search": "搜索",
+    "noGroupsMatchingYourSearch": "没有符合你搜索的小组"
+  },
+  "browseRooms": {
+    "title": "浏览房间",
+    "createRoom": "创建房间",
+    "noRoomsYet": "还没有房间！",
+    "joinRoom": "加入房间",
+    "placeholder": "typescript, next.js, python",
+    "search": "搜索",
+    "clear": "清除",
+    "githubProject": "Github 项目"
+  },
+  "createRoom": {
+    "title": "创建房间",
+    "name": "名称",
+    "description": "描述",
+    "githubProject": "Github 项目",
+    "tags": "标签",
+    "submit": "提交",
+    "roomCreated": "房间已创建",
+    "roomCreatedDescription": "你的房间已成功创建",
+    "nameDescription": "这是你的公开房间名称。",
+    "descriptionDescription": "请描述你正在编码的内容",
+    "githubProjectDescription": "请输入你正在工作的项目链接",
+    "tagsDescription": "列出你的编程语言、框架、库，以便人们可以找到你的内容",
+    "namePlaceholder": "The Group Finder 很棒",
+    "descriptionPlaceholder": "我正在做一个业余项目，来加入我吧",
+    "githubProjectPlaceholder": "https://github.com/hhwjsw711/the-group-finder",
+    "tagsPlaceholder": "typescript, nextjs, tailwind"
   }
 }

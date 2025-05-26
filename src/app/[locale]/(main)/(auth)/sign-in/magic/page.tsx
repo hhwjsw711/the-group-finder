@@ -1,12 +1,14 @@
 import { pageTitleStyles } from "@/styles/common";
+import { useTranslations } from "next-intl";
 
 export default function MagicLinkPage() {
+  const t = useTranslations("auth");
+
   return (
     <div className="py-24 mx-auto max-w-[400px] space-y-6">
-      <h1 className={pageTitleStyles}>Check your email</h1>
+      <h1 className={pageTitleStyles}>{t("checkYourEmail")}</h1>
       <p className="text-xl">
-        We sent you a magic link to sign in. Click the link in your email to
-        sign in.
+        {t("magicLinkSentDescription")}
       </p>
     </div>
   );

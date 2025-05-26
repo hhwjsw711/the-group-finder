@@ -31,12 +31,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useServerAction } from "zsa-react";
+import { useTranslations } from "next-intl";
 
 export const schema = z.object({
   email: z.string().email(),
 });
 
 export function InviteButton() {
+  const t = useTranslations("dashboard.groups.invite");
   const { toast } = useToast();
   const { groupId } = useParams<{ groupId: string }>();
   const [isOpen, setIsOpen] = useState(false);
@@ -53,14 +55,14 @@ export function InviteButton() {
       setIsOpen(false);
       form.reset();
       toast({
-        title: "Invite Sent",
-        description: "Tell your friend to check their email.",
+        title: t("inviteSent"),
+        description: t("inviteSentDescription"),
       });
     },
     onError: ({ err }) => {
       toast({
-        title: "Error",
-        description: err.message || "Failed to send invite.",
+        title: t("error"),
+        description: err.message || t("failedToSendInvite"),
         variant: "destructive",
       });
     },
@@ -77,14 +79,14 @@ export function InviteButton() {
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogTrigger asChild>
         <Button className={btnStyles}>
-          <MailIcon className={btnIconStyles} /> Send Invite
+          <MailIcon className={btnIconStyles} /> {t("sendInviteButton")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Invite a Friend</AlertDialogTitle>
+          <AlertDialogTitle>{t("inviteFriendTitle")}</AlertDialogTitle>
           <AlertDialogDescription>
-            Enter the email of the person you want to invite to this group.
+            {t("inviteFriendDescription")}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -95,9 +97,9 @@ export function InviteButton() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t("email")}</FormLabel>
                   <FormControl>
-                    <Input placeholder="webdevcody@gmail.com" {...field} />
+                    <Input placeholder="hhwjsw711@gmail.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -105,8 +107,8 @@ export function InviteButton() {
             />
 
             <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <LoaderButton isLoading={isPending}>Invite</LoaderButton>
+              <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
+              <LoaderButton isLoading={isPending}>{t("inviteButton")}</LoaderButton>
             </AlertDialogFooter>
           </form>
         </Form>

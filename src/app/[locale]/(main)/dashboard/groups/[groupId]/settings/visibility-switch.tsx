@@ -6,20 +6,21 @@ import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
 import { Group } from "@/db/schema";
 import { useServerAction } from "zsa-react";
+import { useTranslations } from "next-intl";
 
 export function GroupVisibilitySwitch({ group }: { group: Group }) {
   const { toast } = useToast();
-
+  const t = useTranslations("dashboard.groups.settings");
   const { execute } = useServerAction(toggleGroupVisibilityAction, {
     onSuccess() {
       toast({
-        title: "Update successful",
-        description: "Group visibility updated.",
+        title: t("updateSuccessful"),
+        description: t("groupVisibilityUpdated"),
       });
     },
     onError({ err }) {
       toast({
-        title: "Something went wrong",
+        title: t("somethingWentWrong"),
         description: err.message,
         variant: "destructive",
       });
@@ -35,7 +36,7 @@ export function GroupVisibilitySwitch({ group }: { group: Group }) {
         }}
         id="visibility"
       />
-      <Label htmlFor="visibility">Is Group Public</Label>
+      <Label htmlFor="visibility">{t("isGroupPublic")}</Label>
     </div>
   );
 }

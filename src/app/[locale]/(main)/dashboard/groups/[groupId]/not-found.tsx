@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function NotFound() {
+  const t = useTranslations("dashboard.groups.notFound");
   const { groupId } = useParams();
 
   return (
@@ -14,11 +16,11 @@ export default function NotFound() {
         src="/empty-state/no-data.svg"
         width="200"
         height="200"
-        alt="no image placeholder image"
+        alt={t("noImageAlt")}
       ></Image>
-      <h2>Uh-oh, this route wasn't found</h2>
+      <h2>{t("title")}</h2>
       <Button asChild>
-        <Link href={`/dashboard/groups/${groupId}/info`}>View Group Info</Link>
+        <Link href={`/dashboard/groups/${groupId}/info`}>{t("viewGroupInfo")}</Link>
       </Button>
     </div>
   );

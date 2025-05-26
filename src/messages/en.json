@@ -134,5 +134,120 @@
     "descriptionPlaceholder": "Im working on a side project, come join me",
     "githubProjectPlaceholder": "https://github.com/hhwjsw711/the-group-finder",
     "tagsPlaceholder": "typescript, nextjs, tailwind"
+  },
+  "dashboard": {
+    "title": "Your Groups",
+    "noGroups": "Uh-oh, you don't have any groups",
+    "ownedGroups": "Groups You Manage",
+    "noOwnedGroups": "Uh-oh, you don't manage any groups",
+    "otherGroups": "Your Other Groups",
+    "noOtherGroups": "You're not part of any groups",
+    "browseGroups": "Browse Groups",
+    "createGroup": "Create Group",
+    "createGroupDescription": "Create a new group to start managing your events.",
+    "createGroupButton": "Create Group",
+    "groupName": "Group Name",
+    "description": "Description",
+    "groupDescription": "Group Description",
+    "groupCreated": "Group Created",
+    "groupCreatedDescription": "You can now start managing your events",
+    "somethingWentWrong": "Uh-oh, something went wrong",
+    "noImageAlt": "no image placeholder image",
+    "danger": {
+      "title": "Danger",
+      "deleteGroupTitle": "Delete this Group",
+      "deleteGroupDescription": "Delete this group and all it's data.",
+      "groupNotFound": "Group not found",
+      "deleteGroupButton": "Delete Group",
+      "cancel": "Cancel",
+      "deleteGroupConfirmTitle": "Delete Group",
+      "deleteGroupConfirmDescription": "Are you sure you want to delete this group? All your members will no longer be able to view the group information and all data will be removed from our system.",
+      "success": "Success",
+      "youLeftGroup": "You left this group.",
+      "error": "Uh-oh",
+      "somethingWentWrongDeleteGroup": "Uh-oh, something went wrong deleting your group."
+    },
+    "groups": {
+      "tabs": {
+        "info": "Info",
+        "posts": "Posts",
+        "events": "Events",
+        "members": "Members",
+        "settings": "Settings",
+        "danger": "Danger"
+      },
+      "notFound": {
+        "title": "Uh-oh, this route wasn't found",
+        "viewGroupInfo": "View Group Info",
+        "noImageAlt": "no image placeholder image"
+      },
+      "leave": {
+        "leaveGroupButton": "Leave Group",
+        "leaveGroupConfirmTitle": "Leave Group",
+        "leaveGroupConfirmDescription": "Are you sure you want to leave this group? If it was a private group an admin will need to reinvite you.",
+        "yesLeaveGroup": "Yes, leave group",
+        "success": "Success",
+        "youLeftGroup":"You left this group.",
+        "cancel": "Cancel"
+      },
+      "join": {
+        "success": "Success",
+        "youJoinedGroup": "You joined this group.",
+        "joinGroupButton": "Join Group"
+      },
+      "invite": {
+        "error": "Error",
+        "failedToSendInvite": "Failed to send invite.",
+        "sendInviteButton": "Send Invite",
+        "inviteFriendTitle": "Invite a Friend",
+        "inviteFriendDescription": "Enter the email of the person you want to invite to this group.",
+        "email": "Email",
+        "inviteButton": "Invite",
+        "cancel": "Cancel",
+        "inviteSent": "Invite Sent",
+        "inviteSentDescription": "Tell your friend to check their email."
+      },
+      "header": {
+        "members": "Members",
+        "upcomingEvents": "Upcoming Events",
+        "privateGroup": "Private Group",
+        "groupImageAlt": "image of the group"
+      },
+      "settings": {
+        "isGroupPublic": "Is Group Public",
+        "updateSuccessful": "Update successful",
+        "groupVisibilityUpdated": "Group visibility updated.",
+        "somethingWentWrong": "Uh-oh, something went wrong",
+        "youtube": "Youtube",
+        "discord": "Discord",
+        "x": "X",
+        "github": "Github",
+        "save": "Save",
+        "socialLinksUpdated": "Your social links have been updated.",
+        "failedToUpdateSocialLinks": "Failed to update social links.",
+        "error": "Error",
+        "groupUpdated": "Group Updated",
+        "groupNotFound": "Group not found",
+        "groupImage": "Group Image",
+        "groupImageDescription": "Upload a group image to make your group stand out.",
+        "groupName": "Group Name",
+        "groupVisibility": "Group Visibility",
+        "groupVisibilityDescription": "Groups are private by default. If you want random people on the internet to find and join your group without an invite, switch this to on.",
+        "groupDescription": "Group Description",
+        "socialLinks": "Social Links",
+        "groupSettings": "Group Settings",
+        "groupImageAlt": "Image of the group",
+        "nameUpdated": "Name Updated",
+        "nameUpdatedSuccessfully": "Name updated successfully.",
+        "failedToUpdateGroupName": "Failed to update group name.",
+        "groupDescriptionUpdated": "Your group description has been updated.",
+        "failedToUpdateGroupDescription": "Your description was not successfully updated.",
+        "failedToUpdateGroupImage": "Failed to update group image.",
+        "imageUpdated": "Image Updated",
+        "imageUpdatedSuccessfully": "You've successfull updated your group image.",
+        "image": "Image",
+        "upload": "Upload"
+      }
+    }
   }
 }

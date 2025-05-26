@@ -19,16 +19,18 @@ import { DoorOpen } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useServerAction } from "zsa-react";
+import { useTranslations } from "next-intl";
 
 export function LeaveGroupButton() {
+  const t = useTranslations("dashboard.groups.leave");
   const { toast } = useToast();
   const { groupId } = useParams<{ groupId: string }>();
   const [isOpen, setIsOpen] = useState(false);
   const { execute, status } = useServerAction(leaveGroupAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "You left this group.",
+        title: t("success"),
+        description: t("youLeftGroup"),
       });
     },
   });
@@ -37,20 +39,19 @@ export function LeaveGroupButton() {
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogTrigger asChild>
         <Button variant={"destructive"} size={"sm"} className={btnStyles}>
-          <DoorOpen className={btnIconStyles} /> Leave Group
+          <DoorOpen className={btnIconStyles} /> {t("leaveGroupButton")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Leave Group</AlertDialogTitle>
+          <AlertDialogTitle>{t("leaveGroupConfirmTitle")}</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to leave this group? If it was a private group
-            an admin will need to reinvite you.
+            {t("leaveGroupConfirmDescription")}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
           <LoaderButton
             variant={"destructive"}
             isLoading={status === "pending"}
@@ -58,7 +59,7 @@ export function LeaveGroupButton() {
               execute(parseInt(groupId));
             }}
           >
-            Yes, leave group
+            {t("yesLeaveGroup")}
           </LoaderButton>
         </AlertDialogFooter>
       </AlertDialogContent>

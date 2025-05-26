@@ -6,15 +6,17 @@ import { btnIconStyles, btnStyles } from "@/styles/icons";
 import { InteractiveOverlay } from "@/components/interactive-overlay";
 import { useState } from "react";
 import { CreateGroupForm } from "./create-group-form";
+import { useTranslations } from "next-intl";
 
 export function CreateGroupButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations("dashboard");
 
   return (
     <>
       <InteractiveOverlay
-        title={"Create Group"}
-        description={"Create a new group to start managing your events."}
+        title={t("createGroup")}
+        description={t("createGroupDescription")}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         form={<CreateGroupForm />}
@@ -27,7 +29,7 @@ export function CreateGroupButton() {
         className={btnStyles}
       >
         <PlusCircle className={btnIconStyles} />
-        Create Group
+        {t("createGroupButton")}
       </Button>
     </>
   );

@@ -22,10 +22,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { CheckIcon } from "lucide-react";
 import { btnIconStyles } from "@/styles/icons";
 import { ToggleContext } from "@/components/interactive-overlay";
+import { useTranslations } from "next-intl";
 
 export function CreateGroupForm() {
   const { setIsOpen, preventCloseRef } = useContext(ToggleContext);
   const { toast } = useToast();
+  const t = useTranslations("dashboard");
   const { execute, isPending } = useServerAction(createGroupAction, {
     onStart() {
       preventCloseRef.current = true;
@@ -35,15 +37,15 @@ export function CreateGroupForm() {
     },
     onError({ err }) {
       toast({
-        title: "Something went wrong",
+        title: t("somethingWentWrong"),
         description: err.message,
         variant: "destructive",
       });
     },
     onSuccess() {
       toast({
-        title: "Group Created",
-        description: "You can now start managing your events",
+        title: t("groupCreated"),
+        description: t("groupCreatedDescription"),
       });
       setIsOpen(false);
     },
@@ -70,7 +72,7 @@ export function CreateGroupForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Group Name</FormLabel>
+              <FormLabel>{t("groupName")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -84,7 +86,7 @@ export function CreateGroupForm() {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Description</FormLabel>
+              <FormLabel>{t("description")}</FormLabel>
               <FormControl>
                 <Textarea rows={7} {...field} />
               </FormControl>
@@ -94,7 +96,7 @@ export function CreateGroupForm() {
         />
 
         <LoaderButton isLoading={isPending}>
-          <CheckIcon className={btnIconStyles} /> Create Group
+          <CheckIcon className={btnIconStyles} /> {t("createGroupButton")}
         </LoaderButton>
       </form>
     </Form>

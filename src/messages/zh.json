@@ -90,7 +90,7 @@
     },
     "cancel": {
       "title": "不感兴趣？没关系",
-      "description": "点击下方开始使用我们的服务",
+      "description": "查看下方的免费入门套件，直到你准备好使用高级入门套件",
       "checkoutFreeStarterKit": "查看我的免费 Next.js 入门套件",
       "letLandingPageConvincedYou": "让我的主页说服你"
     }
@@ -134,5 +134,120 @@
     "descriptionPlaceholder": "我正在做一个业余项目，来加入我吧",
     "githubProjectPlaceholder": "https://github.com/hhwjsw711/the-group-finder",
     "tagsPlaceholder": "typescript, nextjs, tailwind"
+  },
+  "dashboard": {
+    "title": "你的小组",
+    "noGroups": "哎呀，你还没有任何小组",
+    "ownedGroups": "你管理的小组",
+    "noOwnedGroups": "哎呀，你还没有管理任何小组",
+    "otherGroups": "你的其他小组",
+    "noOtherGroups": "你不是任何小组的成员",
+    "browseGroups": "浏览小组",
+    "createGroup": "创建小组",
+    "createGroupDescription": "创建一个新的小组来开始管理你的活动。",
+    "createGroupButton": "创建小组",
+    "groupName": "小组名称",
+    "description": "描述",
+    "groupDescription": "小组描述",
+    "groupCreated": "小组已创建",
+    "groupCreatedDescription": "你现在可以开始管理你的活动了",
+    "somethingWentWrong": "哎呀，出了点问题",
+    "noImageAlt": "无图片占位符",
+    "danger": {
+      "title": "危险",
+      "deleteGroupTitle": "删除这个小组",
+      "deleteGroupDescription": "删除这个小组和所有它的数据。",
+      "groupNotFound": "小组未找到",
+      "deleteGroupButton": "删除小组",
+      "cancel": "取消",
+      "deleteGroupConfirmTitle": "删除小组",
+      "deleteGroupConfirmDescription": "你确定要删除这个小组吗？所有成员将无法再查看小组信息，且所有数据将从我们的系统中删除。",
+      "success": "成功",
+      "youLeftGroup": "你已退出此小组。",
+      "error": "哎呀",
+      "somethingWentWrongDeleteGroup": "哎呀，删除你的小组时出现了问题。"
+    },
+    "groups": {
+      "tabs": {
+        "info": "信息",
+        "posts": "帖子",
+        "events": "活动",
+        "members": "成员",
+        "settings": "设置",
+        "danger": "危险"
+      },
+      "notFound": {
+        "title": "哎呀，找不到此页面",
+        "viewGroupInfo": "查看小组信息",
+        "noImageAlt": "无图片占位符"
+      },
+      "leave": {
+        "leaveGroupButton": "离开小组",
+        "leaveGroupConfirmTitle": "离开小组",
+        "leaveGroupConfirmDescription": "你确定要离开这个小组吗？如果这是一个私人小组，管理员需要重新邀请你。",
+        "yesLeaveGroup": "是的，离开小组",
+        "success": "成功",
+        "youLeftGroup": "你已离开此小组。",
+        "cancel": "取消"
+      },
+      "join": {
+        "success": "成功",
+        "youJoinedGroup": "你已加入此小组。",
+        "joinGroupButton": "加入小组"
+      },
+      "invite": {
+        "error": "错误",
+        "failedToSendInvite": "发送邀请失败。",
+        "sendInviteButton": "发送邀请",
+        "inviteFriendTitle": "邀请一个朋友",
+        "inviteFriendDescription": "输入你想要邀请的人的电子邮件。",
+        "email": "电子邮件",
+        "inviteButton": "邀请",
+        "cancel": "取消",
+        "inviteSent": "邀请已发送",
+        "inviteSentDescription": "告诉你的朋友检查他们的邮件。"
+      },
+      "header": {
+        "members": "成员",
+        "upcomingEvents": "即将到来的活动",
+        "privateGroup": "私人小组",
+        "groupImageAlt": "小组图片"
+      },
+      "settings": {
+        "isGroupPublic": "小组是否公开",
+        "updateSuccessful": "更新成功",
+        "groupVisibilityUpdated": "小组可见性已更新。",
+        "somethingWentWrong": "哎呀，出了点问题",
+        "youtube": "Youtube",
+        "discord": "Discord",
+        "x": "X",
+        "github": "Github",
+        "save": "保存",
+        "socialLinksUpdated": "你的社交链接已更新。",
+        "failedToUpdateSocialLinks": "更新社交链接失败。",
+        "error": "错误",
+        "groupUpdated": "小组已更新",
+        "groupNotFound": "小组未找到",
+        "groupImage": "小组图片",
+        "groupImageDescription": "上传一个小组图片来让你的小组脱颖而出。",
+        "groupName": "小组名称",
+        "groupVisibility": "小组可见性",
+        "groupVisibilityDescription": "小组默认是私有的。如果你想让随机的人在互联网上找到并加入你的小组而不需要邀请，请将此选项打开。",
+        "groupDescription": "小组描述",
+        "socialLinks": "社交链接",
+        "groupSettings": "小组设置",
+        "groupImageAlt": "小组图片",
+        "nameUpdated": "名称已更新",
+        "nameUpdatedSuccessfully": "名称更新成功。",
+        "failedToUpdateGroupName": "更新小组名称失败。",
+        "groupDescriptionUpdated": "你的小组描述已更新。",
+        "failedToUpdateGroupDescription": "更新小组描述失败。",
+        "failedToUpdateGroupImage": "未能更新小组图片。",
+        "imageUpdated": "图片已更新",
+        "imageUpdatedSuccessfully": "你已成功更新小组图片。",
+        "image": "图片",
+        "upload": "上传"
+      }
+    }
   }
 }

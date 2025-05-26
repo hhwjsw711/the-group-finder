@@ -17,6 +17,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { updateGroupNameAction } from "./actions";
 import { GroupId } from "@/db/schema";
 import { useServerAction } from "zsa-react";
+import { useTranslations } from "next-intl";
 
 const updateGroupNameSchema = z.object({
   name: z.string().min(1),
@@ -30,7 +31,7 @@ export function GroupNameForm({
   groupId: GroupId;
 }) {
   const { toast } = useToast();
-
+  const t = useTranslations("dashboard.groups.settings");
   const form = useForm<z.infer<typeof updateGroupNameSchema>>({
     resolver: zodResolver(updateGroupNameSchema),
     defaultValues: {
@@ -43,15 +44,15 @@ export function GroupNameForm({
     {
       onSuccess: () => {
         toast({
-          title: "Name Updated",
-          description: "Name updated successfully.",
+          title: t("nameUpdated"),
+          description: t("nameUpdatedSuccessfully"),
         });
         form.reset();
       },
       onError: ({ err }) => {
         toast({
-          title: "Error",
-          description: err.message || "Failed to update group name.",
+          title: t("error"),
+          description: err.message || t("failedToUpdateGroupName"),
           variant: "destructive",
         });
       },
@@ -75,7 +76,7 @@ export function GroupNameForm({
           name="name"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Group Name</FormLabel>
+              <FormLabel>{t("groupName")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -83,7 +84,7 @@ export function GroupNameForm({
             </FormItem>
           )}
         />
-        <LoaderButton isLoading={isPending}>Save</LoaderButton>
+        <LoaderButton isLoading={isPending}>{t("save")}</LoaderButton>
       </form>
     </Form>
   );

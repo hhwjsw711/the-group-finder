@@ -16,6 +16,7 @@ import {
 import { CalendarIcon, LoaderIcon, LockIcon, UsersIcon } from "lucide-react";
 import Image from "next/image";
 import { Suspense } from "react";
+import { getTranslations } from "next-intl/server";
 
 async function MembershipButtons({ group }: { group: Pick<Group, "id"> }) {
   const user = await getCurrentUser();
@@ -43,6 +44,7 @@ export async function GroupHeader({
 }: {
   group: Pick<Group, "name" | "id" | "isPublic" | "bannerId">;
 }) {
+  const t = await getTranslations("dashboard.groups.header");
   const user = await getCurrentUser();
   const numberOfMembers = await getMemberCountUseCase(user, group.id);
   const upcomingEvents = await getUpcomingEventsUseCase(user, group.id);
@@ -56,7 +58,7 @@ export async function GroupHeader({
               src={getGroupImageUrl(group)}
               width={80}
               height={80}
-              alt="image of the group"
+              alt={t("groupImageAlt")}
               className="rounded-lg object-cover h-[80px] w-[80px] sm:h-[40px] sm:w-[40px]"
             />
 
@@ -69,13 +71,13 @@ export async function GroupHeader({
                 <div className="flex items-center gap-2">
                   <UsersIcon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500 dark:text-gray-400" />
                   <span className="text-xs sm:text-sm font-medium">
-                    {numberOfMembers} members
+                    {numberOfMembers} {t("members")}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CalendarIcon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500 dark:text-gray-400" />
                   <span className="text-xs sm:text-sm font-medium">
-                    {upcomingEvents.length} upcoming events
+                    {upcomingEvents.length} {t("upcomingEvents")}
                   </span>
                 </div>
 
@@ -87,7 +89,7 @@ export async function GroupHeader({
                     <LockIcon
                       className={cn(btnIconStyles, "h-3 w-3 sm:h-4 sm:w-4")}
                     />{" "}
-                    Private Group
+                    {t("privateGroup")}
                   </Badge>
                 )}
               </div>

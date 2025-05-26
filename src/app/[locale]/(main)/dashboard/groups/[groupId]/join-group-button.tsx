@@ -7,15 +7,17 @@ import { btnIconStyles } from "@/styles/icons";
 import { Handshake } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useServerAction } from "zsa-react";
+import { useTranslations } from "next-intl";
 
 export function JoinGroupButton() {
+  const t = useTranslations("dashboard.groups.join");
   const { groupId } = useParams<{ groupId: string }>();
   const { toast } = useToast();
   const { execute, status } = useServerAction(joinGroupAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "You joined this group.",
+        title: t("success"),
+        description: t("youJoinedGroup"),
       });
     },
   });
@@ -28,7 +30,7 @@ export function JoinGroupButton() {
         execute(parseInt(groupId));
       }}
     >
-      <Handshake className={btnIconStyles} /> Join Group
+      <Handshake className={btnIconStyles} /> {t("joinGroupButton")}
     </LoaderButton>
   );
 }

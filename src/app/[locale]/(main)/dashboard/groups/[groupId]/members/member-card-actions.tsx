@@ -1,7 +1,7 @@
 "use client";
 
 import { Crown, EllipsisVertical, Gavel, User } from "lucide-react";
-
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -26,7 +26,7 @@ export function MemberCardActions({
   userRole: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const t = useTranslations("dashboard.groups.members");
   const { execute: executeSwitchRole } = useServerAction(
     switchMemberRoleAction,
     {
@@ -47,9 +47,9 @@ export function MemberCardActions({
       <DeleteModal
         isOpen={isDeleteModalOpen}
         setIsOpen={setIsDeleteModalOpen}
-        title="Kick Member"
-        description="Are you sure you want to kick this member from the group?"
-        confirmText="Yes, Kick Them"
+        title={t("kickMember")}
+        description={t("kickMemberDescription")}
+        confirmText={t("kickMemberButton")}
         onConfirm={() => {
           execute({
             userId,
@@ -78,7 +78,7 @@ export function MemberCardActions({
               }}
             >
               <Crown className={btnIconStyles} />
-              Promote to Admin
+              {t("promoteToAdmin")}
             </DropdownMenuItem>
           )}
 
@@ -94,7 +94,7 @@ export function MemberCardActions({
               }}
             >
               <User className={btnIconStyles} />
-              Demote to Member
+              {t("demoteToMember")}
             </DropdownMenuItem>
           )}
 
@@ -105,7 +105,7 @@ export function MemberCardActions({
             className={cn(btnStyles, "text-red-500")}
           >
             <Gavel className={btnIconStyles} />
-            Kick
+            {t("kick")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

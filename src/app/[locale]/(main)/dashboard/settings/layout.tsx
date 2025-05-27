@@ -9,18 +9,20 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { headerStyles } from "@/styles/common";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
 export default async function SettingsPage({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const t = await getTranslations("dashboard.settings");
   return (
     <>
       <div className={cn(headerStyles, "py-8")}>
         <div className="container mx-auto">
           <div className="flex justify-between">
-            <h1 className="text-4xl">Account Settings</h1>
+            <h1 className="text-4xl">{t("accountSettings")}</h1>
 
             <Suspense
               fallback={<Skeleton className="w-[160px] h-[40px] rounded" />}
@@ -46,11 +48,12 @@ async function SettingsTabWrapper() {
 }
 
 async function SwitchProfileButton() {
+  const t = await getTranslations("dashboard.settings");
   const user = await getCurrentUser();
   return (
     <Button asChild className={btnStyles}>
       <Link href={`/users/${user!.id}`}>
-        <SquareUser className={btnIconStyles} /> Switch to Profile
+        <SquareUser className={btnIconStyles} /> {t("switchToProfile")}
       </Link>
     </Button>
   );

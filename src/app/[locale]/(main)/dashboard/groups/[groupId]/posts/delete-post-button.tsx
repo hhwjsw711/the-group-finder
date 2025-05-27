@@ -19,15 +19,17 @@ import { useState } from "react";
 import { useServerAction } from "zsa-react";
 import { cn } from "@/lib/utils";
 import { deletePostAction } from "./actions";
+import { useTranslations } from "next-intl";
 
 export function DeletePostButton({ postId }: { postId: number }) {
   const { toast } = useToast();
+  const t = useTranslations("dashboard.groups.posts");
   const [isOpen, setIsOpen] = useState(false);
   const { execute, isPending } = useServerAction(deletePostAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "Post deleted successfully",
+        title: t("success"),
+        description: t("postDeletedSuccessfully"),
       });
     },
   });
@@ -36,26 +38,26 @@ export function DeletePostButton({ postId }: { postId: number }) {
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogTrigger asChild>
         <Button variant={"destructive"} className={cn(btnStyles, "w-fit")}>
-          <Trash className={btnIconStyles} /> Delete Post
+          <Trash className={btnIconStyles} /> {t("deletePostButton")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete Post</AlertDialogTitle>
+          <AlertDialogTitle>{t("deletePost")}</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to delete this post?
+            {t("deletePostDescription")}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
           <LoaderButton
             isLoading={isPending}
             onClick={() => {
               execute({ postId });
             }}
           >
-            Delete Post
+            {t("deletePostButton")}
           </LoaderButton>
         </AlertDialogFooter>
       </AlertDialogContent>

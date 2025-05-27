@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import React, { useRef } from "react";
 import { useServerAction } from "zsa-react";
+import { useTranslations } from "next-intl";
 
 export const MenuBar = () => {
   const { editor } = useCurrentEditor();
@@ -118,21 +119,22 @@ export const EditGroupInfoForm = ({
   info: string;
   isAdminOrOwner: boolean;
 }) => {
+  const t = useTranslations("dashboard.groups.info");
   const { toast } = useToast();
   const { execute: updateGroupInfo, isPending } = useServerAction(
     updateGroupInfoAction,
     {
       onSuccess() {
         toast({
-          title: "Success!",
-          description: "Group info has been updated.",
+          title: t("success"),
+          description: t("groupInfoUpdated"),
         });
       },
       onError() {
         toast({
-          title: "Uh-oh!",
+          title: t("error"),
           variant: "destructive",
-          description: "The group info failed to update.",
+          description: t("groupInfoUpdateFailed"),
         });
       },
     }
@@ -160,7 +162,7 @@ export const EditGroupInfoForm = ({
             isLoading={isPending}
             className="self-end"
           >
-            Save Changes
+            {t("saveChanges")}
           </LoaderButton>
         </div>
       )}

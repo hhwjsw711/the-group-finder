@@ -1,7 +1,7 @@
 "use client";
 
 import { EllipsisVertical, PencilIcon, TrashIcon } from "lucide-react";
-
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -20,6 +20,7 @@ import { InteractiveOverlay } from "@/components/interactive-overlay";
 import { EditEventForm } from "./edit-event-form";
 
 export function EventCardActions({ event }: { event: Event }) {
+  const t = useTranslations("dashboard.groups.events");
   const [isOpen, setIsOpen] = useState(false);
   const [isEditEventOpen, setIsEditEventOpen] = useState(false);
   const { execute, isPending } = useServerAction(deleteEventAction, {
@@ -34,22 +35,23 @@ export function EventCardActions({ event }: { event: Event }) {
       <InteractiveOverlay
         isOpen={isEditEventOpen}
         setIsOpen={setIsEditEventOpen}
-        title={"Edit Event"}
-        description={"Edit the event details"}
+        title={t("editEvent")}
+        description={t("editEventDescription")}
         form={<EditEventForm event={event} />}
       />
 
       <DeleteModal
         isOpen={isDeleteModalOpen}
         setIsOpen={setIsDeleteModalOpen}
-        title="Delete Event"
-        description="Are you sure you want to delete this event? Your members might be confused or upset if you delete this event."
+        title={t("deleteEvent")}
+        description={t("deleteEventDescription")}
         onConfirm={() => {
           execute({
             eventId: event.id,
           });
         }}
         isPending={isPending}
+        confirmText={t("delete")}
       />
 
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -66,7 +68,7 @@ export function EventCardActions({ event }: { event: Event }) {
             className={btnStyles}
           >
             <PencilIcon className={btnIconStyles} />
-            Edit Event
+            {t("editEvent")}
           </DropdownMenuItem>
           <DropdownMenuItem
             className={cn(btnStyles, "text-red-500")}
@@ -75,7 +77,7 @@ export function EventCardActions({ event }: { event: Event }) {
             }}
           >
             <TrashIcon className={btnIconStyles} />
-            Delete Event
+            {t("deleteEvent")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

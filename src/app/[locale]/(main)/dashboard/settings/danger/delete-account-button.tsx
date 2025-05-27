@@ -28,16 +28,18 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { deleteAccountAction } from "./actions";
 import { useServerAction } from "zsa-react";
-
-export const deleteSchema = z.object({
-  confirm: z.string().refine((v) => v === "Please delete", {
-    message: "Please type 'Please delete' to confirm",
-  }),
-});
+import { useTranslations } from "next-intl";
 
 export function DeleteAccountButton() {
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+  const t = useTranslations("dashboard.settings.danger");
+
+  const deleteSchema = z.object({
+    confirm: z.string().refine((v) => v === "Please delete", {
+      message: t("deleteAccountConfirmation"),
+    }),
+  });
 
   const form = useForm<{
     confirm: string;
@@ -54,14 +56,14 @@ export function DeleteAccountButton() {
       onSuccess: () => {
         setIsOpen(false);
         toast({
-          title: "Account Deleted",
-          description: "Your account has been successfully deleted.",
+          title: t("deleteAccountSuccessTitle"),
+          description: t("deleteAccountSuccessDescription"),
         });
       },
       onError: ({ err }) => {
         toast({
-          title: "Error",
-          description: err.message || "Failed to delete account.",
+          title: t("deleteAccountErrorTitle"),
+          description: err.message || t("deleteAccountErrorDescription"),
           variant: "destructive",
         });
       },
@@ -76,16 +78,14 @@ export function DeleteAccountButton() {
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogTrigger asChild>
         <Button className="w-fit" variant="destructive">
-          Delete Account
+          {t("deleteAccountButton")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogTitle>{t("deleteAccountConfirmTitle")}</AlertDialogTitle>
           <AlertDialogDescription>
-            Deleting your account means you will not be able to recover your
-            data in the future. Please type <strong>Please delete</strong> to
-            confirm.
+            {t("deleteAccountConfirmDescription")}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -96,7 +96,7 @@ export function DeleteAccountButton() {
               name="confirm"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Confirm</FormLabel>
+                  <FormLabel>{t("confirm")}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -106,9 +106,9 @@ export function DeleteAccountButton() {
             />
 
             <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
               <LoaderButton isLoading={isPending} variant="destructive">
-                Delete
+                {t("delete")}
               </LoaderButton>
             </AlertDialogFooter>
           </form>

@@ -9,6 +9,7 @@ import {
   isGroupVisibleToUserUseCase,
 } from "@/use-cases/membership";
 import { ReactNode } from "react";
+import { getTranslations } from "next-intl/server";
 
 export default async function GroupLayout({
   children,
@@ -20,11 +21,12 @@ export default async function GroupLayout({
   const { groupId } = await params;
   const groupIdInt = parseInt(groupId);
   const user = await getCurrentUser();
+  const t = await getTranslations("dashboard.groups");
 
   const group = await getPublicGroupInfoByIdUseCase(groupIdInt);
 
   if (!group) {
-    throw new NotFoundError("Group not found.");
+    throw new NotFoundError(t("groupNotFound"));
   }
 
   const isGroupVisibleToUser = await isGroupVisibleToUserUseCase(

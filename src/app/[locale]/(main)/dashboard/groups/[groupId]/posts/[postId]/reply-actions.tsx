@@ -26,17 +26,19 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { useTranslations } from "next-intl";
 
 export function ReplyActions({ reply }: { reply: Reply }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditPostOpen, setIsEditPostOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const { toast } = useToast();
+  const t = useTranslations("dashboard.groups.posts");
   const { execute, isPending } = useServerAction(deleteReplyAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "Reply deleted",
+        title: t("success"),
+        description: t("replyDeletedSuccessfully"),
       });
       setIsDeleteDialogOpen(false);
     },
@@ -45,8 +47,8 @@ export function ReplyActions({ reply }: { reply: Reply }) {
   return (
     <>
       <InteractiveOverlay
-        title={"Edit Reply"}
-        description={"Update the message in your reply"}
+        title={t("editReply")}
+        description={t("updateReplyMessage")}
         form={<EditReplyForm reply={reply} />}
         isOpen={isEditPostOpen}
         setIsOpen={setIsEditPostOpen}
@@ -58,14 +60,14 @@ export function ReplyActions({ reply }: { reply: Reply }) {
       >
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete Reply</AlertDialogTitle>
+            <AlertDialogTitle>{t("deleteReply")}</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete this reply?
+              {t("deleteReplyDescription")}
             </AlertDialogDescription>
           </AlertDialogHeader>
 
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
             <LoaderButton
               isLoading={isPending}
               onClick={() => {
@@ -76,7 +78,7 @@ export function ReplyActions({ reply }: { reply: Reply }) {
                 });
               }}
             >
-              Delete Reply
+              {t("deleteReplyButton")}
             </LoaderButton>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -85,7 +87,7 @@ export function ReplyActions({ reply }: { reply: Reply }) {
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="h-8 w-8 p-0">
-            <span className="sr-only">Open menu</span>
+            <span className="sr-only">{t("openMenu")}</span>
             <MoreVertical className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
@@ -98,7 +100,7 @@ export function ReplyActions({ reply }: { reply: Reply }) {
               setIsOpen(false);
             }}
           >
-            <PencilIcon className={btnIconStyles} /> Edit Reply
+            <PencilIcon className={btnIconStyles} /> {t("editReplyButton")}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center gap-2 text-red-500"
@@ -108,7 +110,7 @@ export function ReplyActions({ reply }: { reply: Reply }) {
               setIsOpen(false);
             }}
           >
-            <Trash className={btnIconStyles} /> Delete Reply
+            <Trash className={btnIconStyles} /> {t("deleteReplyButton")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

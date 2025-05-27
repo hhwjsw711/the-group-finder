@@ -7,6 +7,7 @@ import { EventCard } from "./event-card";
 import { CreateEventButton } from "./create-event-button";
 import { AlarmCheckIcon, DoorClosed } from "lucide-react";
 import { isGroupOwnerUseCase } from "@/use-cases/membership";
+import { getTranslations } from "next-intl/server";
 
 export default async function MembersPage({
   params,
@@ -16,7 +17,7 @@ export default async function MembersPage({
   const { groupId } = await params;
   const groupIdInt = parseInt(groupId);
   const user = await getCurrentUser();
-
+  const t = await getTranslations("dashboard.groups.events");
   const events = await getEventsUseCase(user, groupIdInt);
   const isGroupOwner = await isGroupOwnerUseCase(user, groupIdInt);
 
@@ -34,7 +35,7 @@ export default async function MembersPage({
         <h2
           className={cn(pageTitleStyles, "flex justify-between items-center")}
         >
-          Events
+          {t("title")}
           {isGroupOwner && <CreateEventButton />}
         </h2>
 
@@ -51,7 +52,7 @@ export default async function MembersPage({
               height="200"
               alt="no image placeholder image"
             ></Image>
-            <h2>No events created yet</h2>
+            <h2>{t("noEventsCreatedYet")}</h2>
           </div>
         )}
 
@@ -65,7 +66,7 @@ export default async function MembersPage({
                 )}
               >
                 <div className="flex items-center gap-4">
-                  <AlarmCheckIcon className="w-6 h-6" /> Upcoming
+                  <AlarmCheckIcon className="w-6 h-6" /> {t("upcoming")}
                 </div>
               </h3>
 
@@ -76,7 +77,7 @@ export default async function MembersPage({
                     "flex gap-8 items-center mt-8 py-4 px-4"
                   )}
                 >
-                  No upcoming events found
+                  {t("noUpcomingEventsFound")}
                 </p>
               )}
 
@@ -95,7 +96,7 @@ export default async function MembersPage({
                 )}
               >
                 <div className="flex items-center gap-4">
-                  <DoorClosed className="w-6 h-6" /> Expired
+                  <DoorClosed className="w-6 h-6" /> {t("expired")}
                 </div>
               </h3>
 
@@ -106,7 +107,7 @@ export default async function MembersPage({
                     "flex gap-8 items-center mt-8 py-4 px-4"
                   )}
                 >
-                  No expired events found
+                  {t("noExpiredEventsFound")}
                 </p>
               )}
 

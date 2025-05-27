@@ -22,6 +22,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ToggleContext } from "@/components/interactive-overlay";
 import { createReplyAction } from "./actions";
 import { GroupId } from "@/db/schema";
+import { useTranslations } from "next-intl";
 
 const createReplySchema = z.object({
   message: z.string().min(1),
@@ -36,21 +37,22 @@ export function PostReplyForm({
 }) {
   const { setIsOpen: setIsOverlayOpen } = useContext(ToggleContext);
   const { toast } = useToast();
+  const t = useTranslations("dashboard.groups.posts");
 
   const { execute, error, isPending } = useServerAction(createReplyAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "Reply created successfully.",
+        title: t("success"),
+        description: t("replyCreatedSuccessfully"),
       });
       setIsOverlayOpen(false);
       form.reset();
     },
     onError() {
       toast({
-        title: "Uh oh",
+        title: t("error"),
         variant: "destructive",
-        description: "Something went wrong creating your reply.",
+        description: t("somethingWentWrongCreatingReply"),
       });
     },
   });
@@ -84,7 +86,7 @@ export function PostReplyForm({
           name="message"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t("replyMessage")}</FormLabel>
               <FormControl>
                 <Textarea rows={4} {...field} />
               </FormControl>
@@ -96,13 +98,13 @@ export function PostReplyForm({
         {error && (
           <Alert variant="destructive">
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Error creating reply</AlertTitle>
+            <AlertTitle>{t("errorCreatingReply")}</AlertTitle>
             <AlertDescription>{error.message}</AlertDescription>
           </Alert>
         )}
 
         <LoaderButton isLoading={isPending}>
-          <SendIcon className={btnIconStyles} /> Post Reply
+          <SendIcon className={btnIconStyles} /> {t("postReplyButton")}
         </LoaderButton>
       </form>
     </Form>

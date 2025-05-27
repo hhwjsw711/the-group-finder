@@ -11,12 +11,14 @@ import {
   isUserMemberOfGroupUseCase,
 } from "@/use-cases/membership";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
 export default async function PostsPage({
   params,
 }: {
   params: Promise<{ groupId: string }>;
 }) {
+  const t = await getTranslations("dashboard.groups.posts");
   const { groupId } = await params;
   const groupIdInt = parseInt(groupId);
   const user = await getCurrentUser();
@@ -25,7 +27,7 @@ export default async function PostsPage({
   return (
     <div className="flex flex-col gap-8">
       <div className="flex justify-between items-center">
-        <h2 className={pageTitleStyles}>Posts</h2>
+        <h2 className={pageTitleStyles}>{t("title")}</h2>
         {canPost && <CreatePostButton />}
       </div>
 
@@ -44,6 +46,7 @@ function PostsListLoader() {
 
 async function PostsList({ groupId }: { groupId: string }) {
   const user = await getCurrentUser();
+  const t = await getTranslations("dashboard.groups.posts");
 
   const posts = await getPostsInGroupUseCase(user, parseInt(groupId));
 
@@ -62,7 +65,7 @@ async function PostsList({ groupId }: { groupId: string }) {
             height="200"
             alt="no image placeholder image"
           ></Image>
-          <h2>No posts created yet</h2>
+          <h2>{t("noPostsCreatedYet")}</h2>
           <CreatePostButton />
         </div>
       )}

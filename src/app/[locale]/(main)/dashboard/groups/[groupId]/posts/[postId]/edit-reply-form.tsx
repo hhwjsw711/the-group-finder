@@ -22,6 +22,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ToggleContext } from "@/components/interactive-overlay";
 import { updateReplyAction } from "./actions";
 import { Reply } from "@/db/schema";
+import { useTranslations } from "next-intl";
 
 const createReplySchema = z.object({
   message: z.string().min(1),
@@ -30,21 +31,22 @@ const createReplySchema = z.object({
 export function EditReplyForm({ reply }: { reply: Reply }) {
   const { setIsOpen: setIsOverlayOpen } = useContext(ToggleContext);
   const { toast } = useToast();
+  const t = useTranslations("dashboard.groups.posts");
 
   const { execute, error, isPending } = useServerAction(updateReplyAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "Reply created successfully.",
+        title: t("success"),
+        description: t("replyCreatedSuccessfully"),
       });
       setIsOverlayOpen(false);
       form.reset();
     },
     onError() {
       toast({
-        title: "Uh oh",
+        title: t("error"),
         variant: "destructive",
-        description: "Something went wrong creating your reply.",
+        description: t("somethingWentWrongCreatingReply"),
       });
     },
   });
@@ -76,7 +78,7 @@ export function EditReplyForm({ reply }: { reply: Reply }) {
           name="message"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t("replyMessage")}</FormLabel>
               <FormControl>
                 <Textarea rows={4} {...field} />
               </FormControl>
@@ -88,13 +90,13 @@ export function EditReplyForm({ reply }: { reply: Reply }) {
         {error && (
           <Alert variant="destructive">
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Error creating reply</AlertTitle>
+            <AlertTitle>{t("errorCreatingReply")}</AlertTitle>
             <AlertDescription>{error.message}</AlertDescription>
           </Alert>
         )}
 
         <LoaderButton isLoading={isPending}>
-          <CheckIcon className={btnIconStyles} /> Update Reply
+          <CheckIcon className={btnIconStyles} /> {t("updateReplyButton")}
         </LoaderButton>
       </form>
     </Form>

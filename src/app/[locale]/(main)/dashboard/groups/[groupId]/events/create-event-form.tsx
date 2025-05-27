@@ -40,18 +40,7 @@ import {
   MAX_UPLOAD_IMAGE_SIZE,
   MAX_UPLOAD_IMAGE_SIZE_IN_MB,
 } from "@/app-config";
-
-const createEventSchema = z.object({
-  name: z.string().min(1),
-  description: z.string().min(1),
-  startsOn: z.date(),
-  file: z
-    .instanceof(File)
-    .refine((file) => file.size < MAX_UPLOAD_IMAGE_SIZE, {
-      message: `Your image was too large. It must be under ${MAX_UPLOAD_IMAGE_SIZE_IN_MB}MB`,
-    })
-    .optional(),
-});
+import { useTranslations } from "next-intl";
 
 export function CreateEventForm({ groupId }: { groupId: GroupId }) {
   const { setIsOpen: setIsOverlayOpen } = useContext(ToggleContext);
@@ -62,22 +51,34 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
   const periodRef = useRef<HTMLButtonElement>(null);
   const [date, setDate] = useState<Date>();
   const [period, setPeriod] = useState<Period>("PM");
-
+  const t = useTranslations("dashboard.groups.events");
   const { execute, error, isPending } = useServerAction(createEventAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "Event created successfully.",
+        title: t("success"),
+        description: t("eventCreatedSuccessfully"),
       });
       setIsOverlayOpen(false);
     },
     onError() {
       toast({
-        title: "Uh oh",
+        title: t("error"),
         variant: "destructive",
-        description: "Something went wrong creating your event.",
+        description: t("eventCreationFailed"),
       });
     },
+  });
+
+  const createEventSchema = z.object({
+    name: z.string().min(1),
+    description: z.string().min(1),
+    startsOn: z.date(),
+    file: z
+      .instanceof(File)
+      .refine((file) => file.size < MAX_UPLOAD_IMAGE_SIZE, {
+        message: t("imageTooLarge"),
+      })
+      .optional(),
   });
 
   const form = useForm<z.infer<typeof createEventSchema>>({
@@ -127,7 +128,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           name="name"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Event Name</FormLabel>
+              <FormLabel>{t("eventName")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -141,7 +142,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           name="description"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Description</FormLabel>
+              <FormLabel>{t("eventDescription")}</FormLabel>
               <FormControl>
                 <Textarea rows={7} {...field} />
               </FormControl>
@@ -155,7 +156,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           name="startsOn"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Date of Event</FormLabel>
+              <FormLabel>{t("eventDate")}</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -169,7 +170,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
                       {field.value ? (
                         format(field.value, "PPP")
                       ) : (
-                        <span>Pick a date</span>
+                        <span>{t("pickADate")}</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
@@ -194,12 +195,12 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           )}
         />
 
-        <FormLabel className="mt-4">Time of Event</FormLabel>
+        <FormLabel className="mt-4">{t("eventTime")}</FormLabel>
 
         <div className="flex items-end gap-2">
           <div className="grid gap-1 text-center">
             <Label htmlFor="hours" className="text-xs">
-              Hours
+              {t("hours")}
             </Label>
             <TimePickerInput
               picker="12hours"
@@ -212,7 +213,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           </div>
           <div className="grid gap-1 text-center">
             <Label htmlFor="minutes" className="text-xs">
-              Minutes
+              {t("minutes")}
             </Label>
             <TimePickerInput
               picker="minutes"
@@ -225,7 +226,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           </div>
           <div className="grid gap-1 text-center">
             <Label htmlFor="seconds" className="text-xs">
-              Seconds
+              {t("seconds")}
             </Label>
             <TimePickerInput
               picker="seconds"
@@ -237,7 +238,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           </div>
           <div className="grid gap-1 text-center">
             <Label htmlFor="period" className="text-xs">
-              Period
+              {t("period")}
             </Label>
             <TimePeriodSelect
               period={period}
@@ -259,7 +260,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           name="file"
           render={({ field: { value, onChange, ...fieldProps } }) => (
             <FormItem>
-              <FormLabel>Image</FormLabel>
+              <FormLabel>{t("image")}</FormLabel>
               <FormControl>
                 <Input
                   {...fieldProps}
@@ -279,13 +280,13 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
         {error && (
           <Alert variant="destructive">
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Error creating event</AlertTitle>
+            <AlertTitle>{t("errorCreatingEvent")}</AlertTitle>
             <AlertDescription>{error.message}</AlertDescription>
           </Alert>
         )}
 
         <LoaderButton isLoading={isPending}>
-          <CalendarDays className={btnIconStyles} /> Create Event
+          <CalendarDays className={btnIconStyles} /> {t("createEventButton")}
         </LoaderButton>
       </form>
     </Form>

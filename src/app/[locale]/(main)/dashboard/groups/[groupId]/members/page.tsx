@@ -10,6 +10,7 @@ import { InviteButton } from "../invite-button";
 import { Crown, Gavel, Users } from "lucide-react";
 import { MemberCardActions } from "./member-card-actions";
 import { GroupId } from "@/db/schema";
+import { getTranslations } from "next-intl/server";
 
 function MemberCard({
   showActions,
@@ -57,6 +58,7 @@ export default async function MembersPage({
 }: {
   params: Promise<{ groupId: string }>;
 }) {
+  const t = await getTranslations("dashboard.groups.members");
   const { groupId } = await params;
   const user = await getCurrentUser();
   const groupIdInt = parseInt(groupId);
@@ -73,12 +75,12 @@ export default async function MembersPage({
   return (
     <div className="space-y-8">
       <h1 className={cn(pageTitleStyles, "flex justify-between items-center")}>
-        <div>Members</div>
+        <div>{t("title")}</div>
         {isGroupOwner && <InviteButton />}
       </h1>
 
       <h2 className="text-2xl flex items-center gap-2">
-        <Crown /> Owner
+        <Crown /> {t("owner")}
       </h2>
       <div className="flex flex-wrap gap-4">
         {owners.map((member) => (
@@ -94,7 +96,7 @@ export default async function MembersPage({
       {admins.length > 0 && (
         <>
           <h2 className="text-2xl flex items-center gap-2">
-            <Gavel /> Admin
+            <Gavel /> {t("admin")}
           </h2>
           <div className="flex flex-wrap gap-4">
             {admins.map((member) => (
@@ -112,7 +114,7 @@ export default async function MembersPage({
       {regularMembers.length > 0 && (
         <>
           <h2 className="text-2xl flex items-center gap-2">
-            <Users /> Members
+            <Users /> {t("members")}
           </h2>
           <div className="flex flex-wrap gap-4">
             {regularMembers.map((member) => (

@@ -11,8 +11,10 @@ import { isFollowingUserUseCase } from "@/use-cases/following";
 import { UnfollowButton } from "./unfollow-button";
 import { cn } from "@/lib/utils";
 import { UserId } from "@/use-cases/types";
+import { getTranslations } from "next-intl/server";
 
 export async function ProfileHeader({ userId }: { userId: UserId }) {
+  const t = await getTranslations("users.profile");
   const user = await getCurrentUser();
   const profile = await getUserProfileUseCase(userId);
   const isOwnProfile = user?.id === userId;
@@ -49,7 +51,7 @@ export async function ProfileHeader({ userId }: { userId: UserId }) {
           {isOwnProfile && (
             <Button asChild className={btnStyles}>
               <Link href={`/dashboard/settings/profile`}>
-                <SquareUser className={btnIconStyles} /> Edit your Profile
+                <SquareUser className={btnIconStyles} /> {t("editProfile")}
               </Link>
             </Button>
           )}

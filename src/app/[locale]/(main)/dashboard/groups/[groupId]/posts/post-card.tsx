@@ -13,6 +13,7 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cardStyles, linkStyles } from "@/styles/common";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
 function PostAvatarFallback() {
   return (
@@ -46,7 +47,7 @@ async function PostAvatar({ userId }: { userId: number }) {
 
 export async function PostCard({ post }: { post: Post }) {
   const user = await getCurrentUser();
-
+  const t = await getTranslations("dashboard.groups.posts");
   const canDeletePost = await canEditPostUseCase(user, post.id);
   const replyCount = await getReplyCountUseCase(user, post.id);
 
@@ -82,13 +83,13 @@ export async function PostCard({ post }: { post: Post }) {
         {canDeletePost ? (
           <Button asChild className="w-full sm:w-fit">
             <Link href={`/dashboard/groups/${post.groupId}/posts/${post.id}`}>
-              Manage post...
+              {t("managePostButton")}
             </Link>
           </Button>
         ) : (
           <Button asChild className="w-full sm:w-fit" variant={"secondary"}>
             <Link href={`/dashboard/groups/${post.groupId}/posts/${post.id}`}>
-              Read post...
+              {t("readPostButton")}
             </Link>
           </Button>
         )}

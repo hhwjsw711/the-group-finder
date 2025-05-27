@@ -17,12 +17,14 @@ import { socialIconStyles } from "@/styles/icons";
 import { NotFoundError } from "@/app/[locale]/(main)/util";
 import { cardStyles, pageTitleStyles } from "@/styles/common";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
 export default async function InfoPage({
   params,
 }: {
   params: Promise<{ groupId: string }>;
 }) {
+  const t = await getTranslations("dashboard.groups.info");
   const { groupId } = await params;
 
   const user = await getCurrentUser();
@@ -35,13 +37,13 @@ export default async function InfoPage({
   const group = await getPublicGroupInfoByIdUseCase(parseInt(groupId));
 
   if (!group) {
-    throw new NotFoundError("Group not found");
+    throw new NotFoundError(t("groupNotFound"));
   }
 
   return (
     <div className="space-y-8">
       <h1 className={cn(pageTitleStyles, "flex justify-between items-center")}>
-        <div>Info</div>
+        <div>{t("title")}</div>
       </h1>
 
       <div className="flex flex-col lg:flex-row gap-8">

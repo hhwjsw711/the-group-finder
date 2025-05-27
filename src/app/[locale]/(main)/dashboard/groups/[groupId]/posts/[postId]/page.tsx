@@ -21,6 +21,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ReplyActions } from "./reply-actions";
+import { getTranslations } from "next-intl/server";
 
 export default async function PostPage({
   params,
@@ -34,13 +35,14 @@ export default async function PostPage({
   const groupIdInt = parseInt(groupId);
   const post = await getPostByIdUseCase(user, postIdInt);
   const isPostAdmin = await canEditPostUseCase(user, postIdInt);
+  const t = await getTranslations("dashboard.groups.posts");
 
   return (
     <div className="flex flex-col gap-8">
       <div className="flex justify-between items-center">
         <Button asChild>
           <Link href={`/dashboard/groups/${groupId}/posts`}>
-            <ChevronLeft /> Back to Posts
+            <ChevronLeft /> {t("backToPosts")}
           </Link>
         </Button>
 
@@ -52,7 +54,7 @@ export default async function PostPage({
       {isPostAdmin ? <EditPostForm post={post} /> : <p>{post.message}</p>}
 
       <h2 className="text-2xl" id="replies">
-        Replies
+        {t("replies")}
       </h2>
 
       <Suspense>

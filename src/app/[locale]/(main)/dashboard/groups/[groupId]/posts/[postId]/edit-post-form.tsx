@@ -23,6 +23,7 @@ import { useServerAction } from "zsa-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ToggleContext } from "@/components/interactive-overlay";
 import { updatePostAction } from "./actions";
+import { useTranslations } from "next-intl";
 
 const updatePostSchema = z.object({
   title: z.string().min(1),
@@ -32,20 +33,21 @@ const updatePostSchema = z.object({
 export function EditPostForm({ post }: { post: Post }) {
   const { setIsOpen: setIsOverlayOpen } = useContext(ToggleContext);
   const { toast } = useToast();
+  const t = useTranslations("dashboard.groups.posts");
 
   const { execute, error, isPending } = useServerAction(updatePostAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "Post updated successfully.",
+        title: t("success"),
+        description: t("postUpdatedSuccessfully"),
       });
       setIsOverlayOpen(false);
     },
     onError() {
       toast({
-        title: "Uh oh",
+        title: t("error"),
         variant: "destructive",
-        description: "Something went wrong updating your post.",
+        description: t("somethingWentWrongUpdatingPost"),
       });
     },
   });
@@ -80,7 +82,7 @@ export function EditPostForm({ post }: { post: Post }) {
           name="title"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Title</FormLabel>
+              <FormLabel>{t("postTitle")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -94,7 +96,7 @@ export function EditPostForm({ post }: { post: Post }) {
           name="message"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t("postMessage")}</FormLabel>
               <FormControl>
                 <Textarea rows={7} {...field} />
               </FormControl>
@@ -106,13 +108,13 @@ export function EditPostForm({ post }: { post: Post }) {
         {error && (
           <Alert variant="destructive">
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Error updating post</AlertTitle>
+            <AlertTitle>{t("errorUpdatingPost")}</AlertTitle>
             <AlertDescription>{error.message}</AlertDescription>
           </Alert>
         )}
 
         <LoaderButton isLoading={isPending} className="w-fit ml-auto">
-          <CheckIcon className={btnIconStyles} /> Update Post
+          <CheckIcon className={btnIconStyles} /> {t("updatePostButton")}
         </LoaderButton>
       </form>
     </Form>

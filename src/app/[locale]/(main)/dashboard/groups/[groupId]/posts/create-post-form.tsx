@@ -23,6 +23,7 @@ import { GroupId } from "@/db/schema";
 import { useServerAction } from "zsa-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ToggleContext } from "@/components/interactive-overlay";
+import { useTranslations } from "next-intl";
 
 const createEventSchema = z.object({
   title: z.string().min(1),
@@ -32,20 +33,21 @@ const createEventSchema = z.object({
 export function CreateEventForm({ groupId }: { groupId: GroupId }) {
   const { setIsOpen: setIsOverlayOpen } = useContext(ToggleContext);
   const { toast } = useToast();
+  const t = useTranslations("dashboard.groups.posts");
 
   const { execute, error, isPending } = useServerAction(createPostAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "Post created successfully.",
+        title: t("success"),
+        description: t("postCreatedSuccessfully"),
       });
       setIsOverlayOpen(false);
     },
     onError() {
       toast({
-        title: "Uh oh",
+        title: t("error"),
         variant: "destructive",
-        description: "Something went wrong creating your post.",
+        description: t("somethingWentWrongCreatingPost"),
       });
     },
   });
@@ -80,7 +82,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           name="title"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Post Title</FormLabel>
+              <FormLabel>{t("postTitle")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -94,7 +96,7 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
           name="message"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t("postMessage")}</FormLabel>
               <FormControl>
                 <Textarea rows={7} {...field} />
               </FormControl>
@@ -106,13 +108,13 @@ export function CreateEventForm({ groupId }: { groupId: GroupId }) {
         {error && (
           <Alert variant="destructive">
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Error creating post</AlertTitle>
+            <AlertTitle>{t("errorCreatingPost")}</AlertTitle>
             <AlertDescription>{error.message}</AlertDescription>
           </Alert>
         )}
 
         <LoaderButton isLoading={isPending}>
-          <CalendarDays className={btnIconStyles} /> Create Post
+          <CalendarDays className={btnIconStyles} /> {t("createPostButton")}
         </LoaderButton>
       </form>
     </Form>

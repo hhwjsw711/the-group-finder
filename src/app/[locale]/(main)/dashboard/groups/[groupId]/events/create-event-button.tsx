@@ -7,16 +7,18 @@ import { Calendar } from "lucide-react";
 import { btnIconStyles, btnStyles } from "@/styles/icons";
 import { InteractiveOverlay } from "@/components/interactive-overlay";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function CreateEventButton() {
   const { groupId } = useParams<{ groupId: string }>();
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations("dashboard.groups.events");
 
   return (
     <>
       <InteractiveOverlay
-        title={"Create Event"}
-        description={"Fill in the form below to create an event."}
+        title={t("createEvent")}
+        description={t("createEventDescription")}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         form={<CreateEventForm groupId={parseInt(groupId)} />}
@@ -29,7 +31,7 @@ export function CreateEventButton() {
         className={btnStyles}
       >
         <Calendar className={btnIconStyles} />
-        Create Event
+        {t("createEventButton")}
       </Button>
     </>
   );

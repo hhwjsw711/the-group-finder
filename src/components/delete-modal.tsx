@@ -10,6 +10,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { useTranslations } from "next-intl";
 
 export function DeleteModal({
   onConfirm,
@@ -28,6 +29,8 @@ export function DeleteModal({
   confirmText?: string;
   isPending: boolean;
 }) {
+  const t = useTranslations("dashboard.groups.members");
+  
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogContent>
@@ -37,7 +40,7 @@ export function DeleteModal({
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
           <LoaderButton onClick={onConfirm} isLoading={isPending}>
             {confirmText}
           </LoaderButton>

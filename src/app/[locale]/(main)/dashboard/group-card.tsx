@@ -14,6 +14,7 @@ import { cardStyles } from "@/styles/common";
 import { UsersIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function GroupCard({
   group,
@@ -24,6 +25,7 @@ export function GroupCard({
   buttonText: string;
   memberCount: string;
 }) {
+  const t = useTranslations("dashboard");
   return (
     <Card className={cn(cardStyles)}>
       <CardHeader>
@@ -41,7 +43,7 @@ export function GroupCard({
       </CardHeader>
       <CardContent>
         <div className="flex gap-2 justify-center items-center">
-          <UsersIcon /> {memberCount} members
+          <UsersIcon /> {memberCount} {t("members")}
         </div>
       </CardContent>
       <CardFooter>

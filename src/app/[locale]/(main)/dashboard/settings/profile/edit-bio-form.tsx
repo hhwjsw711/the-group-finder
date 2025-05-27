@@ -10,11 +10,13 @@ import { useServerAction } from "zsa-react";
 import { updateProfileBioAction } from "./actions";
 import { useRef } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslations } from "next-intl";
 
 export function EditBioForm({ bio }: { bio: string }) {
   const { execute, isPending } = useServerAction(updateProfileBioAction);
   const htmlRef = useRef<string>(bio);
   const { toast } = useToast();
+  const t = useTranslations("dashboard.settings.profile");
 
   return (
     <div className="w-full space-y-4">
@@ -34,14 +36,14 @@ export function EditBioForm({ bio }: { bio: string }) {
             execute({ bio: htmlRef.current }).then(([, err]) => {
               if (err) {
                 toast({
-                  title: "Uh-oh!",
+                  title: t("error"),
                   variant: "destructive",
-                  description: "Your profile bio failed to update.",
+                  description: t("profileBioUpdateFailed"),
                 });
               } else {
                 toast({
-                  title: "Success!",
-                  description: "Your profile bio has been updated.",
+                  title: t("success"),
+                  description: t("profileBioUpdated"),
                 });
               }
             });
@@ -49,7 +51,7 @@ export function EditBioForm({ bio }: { bio: string }) {
           isLoading={isPending}
           className="self-end"
         >
-          Save Changes
+          {t("saveChanges")}
         </LoaderButton>
       </div>
     </div>

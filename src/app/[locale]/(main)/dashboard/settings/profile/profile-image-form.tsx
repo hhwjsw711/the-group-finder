@@ -21,16 +21,18 @@ import {
   MAX_UPLOAD_IMAGE_SIZE_IN_MB,
 } from "@/app-config";
 import { useServerAction } from "zsa-react";
-
-const uploadImageSchema = z.object({
-  file: z.instanceof(File).refine((file) => file.size < MAX_UPLOAD_IMAGE_SIZE, {
-    message: `Your image must be less than ${MAX_UPLOAD_IMAGE_SIZE_IN_MB}MB.`,
-  }),
-});
+import { useTranslations } from "next-intl";
 
 export function ProfileImageForm() {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
+  const t = useTranslations("dashboard.settings.profile");
+
+  const uploadImageSchema = z.object({
+    file: z.instanceof(File).refine((file) => file.size < MAX_UPLOAD_IMAGE_SIZE, {
+      message: t("imageTooLarge"),
+    }),
+  });
 
   const form = useForm<z.infer<typeof uploadImageSchema>>({
     resolver: zodResolver(uploadImageSchema),
@@ -42,15 +44,15 @@ export function ProfileImageForm() {
     {
       onError: ({ err }) => {
         toast({
-          title: "Error",
-          description: err.message || "Failed to update profile image.",
+          title: t("error"),
+          description: err.message || t("profileImageUpdateFailed"),
           variant: "destructive",
         });
       },
       onSuccess: () => {
         toast({
-          title: "Image Updated",
-          description: "You've successfully updated your profile image.",
+          title: t("success"),
+          description: t("profileImageUpdated"),
         });
         formRef.current?.reset();
       },
@@ -77,7 +79,7 @@ export function ProfileImageForm() {
           name="file"
           render={({ field: { value, onChange, ...fieldProps } }) => (
             <FormItem>
-              <FormLabel>Image</FormLabel>
+              <FormLabel>{t("image")}</FormLabel>
               <FormControl>
                 <Input
                   {...fieldProps}
@@ -93,7 +95,7 @@ export function ProfileImageForm() {
             </FormItem>
           )}
         />
-        <LoaderButton isLoading={isPending}>Upload</LoaderButton>
+        <LoaderButton isLoading={isPending}>{t("upload")}</LoaderButton>
       </form>
     </Form>
   );

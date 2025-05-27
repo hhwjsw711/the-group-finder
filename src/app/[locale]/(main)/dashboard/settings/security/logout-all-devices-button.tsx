@@ -5,9 +5,11 @@ import { btnIconStyles, btnStyles } from "@/styles/icons";
 import { LogOut } from "lucide-react";
 import { useServerAction } from "zsa-react";
 import { invalidateUserSessionsAction } from "./actions";
+import { useTranslations } from "next-intl";
 
 export function LogoutAllDevicesButton() {
   const { execute, isPending } = useServerAction(invalidateUserSessionsAction);
+  const t = useTranslations("dashboard.settings.security");
 
   return (
     <LoaderButton
@@ -18,7 +20,7 @@ export function LogoutAllDevicesButton() {
       isLoading={isPending}
     >
       <LogOut className={btnIconStyles} />
-      Logout of all Sessions
+      {t("logoutAllDevices")}
     </LoaderButton>
   );
 }

@@ -8,24 +8,27 @@ import { unstable_noStore } from "next/cache";
 import { RoomId } from "@/use-cases/types";
 import { getProfile } from "@/data-access/profiles";
 import { assertAuthenticated } from "@/lib/session";
+import { getTranslations } from "next-intl/server";
 
 export default async function RoomPage(props: { params: Promise<{ roomId: RoomId }> }) {
   unstable_noStore();
   const params = await props.params;
   const roomId = params.roomId;
 
+  const t = await getTranslations("rooms");
+
   const user = await assertAuthenticated();
 
   const profile = await getProfile(user.id);
 
   if (!profile) {
-    return <div>User profile not found</div>;
+    return <div>{t("userProfileNotFound")}</div>;
   }
 
   const room = await getRoom(roomId);
 
   if (!room) {
-    return <div>No room of this ID found</div>;
+    return <div>{t("roomNotFound")}</div>;
   }
 
   return (
@@ -48,7 +51,7 @@ export default async function RoomPage(props: { params: Promise<{ roomId: RoomId
               rel="noopener noreferrer"
             >
               <GithubIcon />
-              Github Project
+              {t("githubProject")}
             </Link>
           )}
 

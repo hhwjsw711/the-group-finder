@@ -16,6 +16,7 @@ import { LoaderButton } from "@/components/loader-button";
 import { useToast } from "@/components/ui/use-toast";
 import { updateProfileNameAction } from "./actions";
 import { useServerAction } from "zsa-react";
+import { useTranslations } from "next-intl";
 
 const updateProfileNameSchema = z.object({
   profileName: z.string().min(1),
@@ -23,6 +24,7 @@ const updateProfileNameSchema = z.object({
 
 export function ProfileNameForm({ profileName }: { profileName: string }) {
   const { toast } = useToast();
+  const t = useTranslations("dashboard.settings.profile");
 
   const form = useForm<z.infer<typeof updateProfileNameSchema>>({
     resolver: zodResolver(updateProfileNameSchema),
@@ -36,15 +38,15 @@ export function ProfileNameForm({ profileName }: { profileName: string }) {
     {
       onSuccess: () => {
         toast({
-          title: "Name Updated",
-          description: "Name updated successfully.",
+          title: t("success"),
+          description: t("profileNameUpdated"),
         });
         form.reset();
       },
       onError: ({ err }) => {
         toast({
-          title: "Error",
-          description: err.message || "Failed to update profile name.",
+          title: t("error"),
+          description: err.message || t("profileNameUpdateFailed"),
           variant: "destructive",
         });
       },
@@ -68,7 +70,7 @@ export function ProfileNameForm({ profileName }: { profileName: string }) {
           name="profileName"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Display Name</FormLabel>
+              <FormLabel>{t("displayName")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -76,7 +78,7 @@ export function ProfileNameForm({ profileName }: { profileName: string }) {
             </FormItem>
           )}
         />
-        <LoaderButton isLoading={isPending}>Save</LoaderButton>
+        <LoaderButton isLoading={isPending}>{t("saveChanges")}</LoaderButton>
       </form>
     </Form>
   );

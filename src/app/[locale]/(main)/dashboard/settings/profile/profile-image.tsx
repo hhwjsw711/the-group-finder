@@ -7,6 +7,7 @@ import { ConfigurationPanel } from "@/components/configuration-panel";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 import { getUserProfileLoader } from "./page";
+import { getTranslations } from "next-intl/server";
 
 export function getProfileImageFullUrl(profile: Profile) {
   return profile.imageId
@@ -17,8 +18,9 @@ export function getProfileImageFullUrl(profile: Profile) {
 }
 
 export async function ProfileImage() {
+  const t = await getTranslations("dashboard.settings.profile");
   return (
-    <ConfigurationPanel title="Profile Image">
+    <ConfigurationPanel title={t("profileImage")}>
       <Suspense fallback={<Skeleton className="w-full h-[200px] rounded" />}>
         <ProfileImageContent />
       </Suspense>
@@ -28,7 +30,8 @@ export async function ProfileImage() {
 
 async function ProfileImageContent() {
   const user = await getCurrentUser();
-
+  const t = await getTranslations("dashboard.settings.profile");
+  
   if (!user) {
     return null;
   }
@@ -42,7 +45,7 @@ async function ProfileImageContent() {
         width={200}
         height={200}
         className="h-[200px] sm:h-[100px] w-full object-cover rounded-xl mb-4 sm:mb-6"
-        alt="Profile image"
+        alt={t("profileImageAlt")}
       />
       <ProfileImageForm />
     </div>

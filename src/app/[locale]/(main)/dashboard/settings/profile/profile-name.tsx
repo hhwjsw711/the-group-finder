@@ -4,10 +4,12 @@ import { getCurrentUser } from "@/lib/session";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getUserProfileLoader } from "./page";
+import { getTranslations } from "next-intl/server";
 
 export async function ProfileName() {
+  const t = await getTranslations("dashboard.settings.profile");
   return (
-    <ConfigurationPanel title="Display Name">
+    <ConfigurationPanel title={t("displayName")}>
       <Suspense fallback={<Skeleton className="w-full h-[200px] rounded" />}>
         <ProfileNameWrapper />
       </Suspense>

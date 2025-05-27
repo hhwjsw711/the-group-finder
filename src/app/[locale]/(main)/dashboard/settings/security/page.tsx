@@ -1,13 +1,14 @@
 import { ConfigurationPanel } from "@/components/configuration-panel";
 import { LogoutAllDevicesButton } from "./logout-all-devices-button";
+import { getTranslations } from "next-intl/server";
 
 export default async function SecurityPage() {
+  const t = await getTranslations("dashboard.settings.security");
   return (
-    <ConfigurationPanel title="Sessions">
+    <ConfigurationPanel title={t("sessions")}>
       <div className="flex flex-col gap-4">
         <p>
-          If you're logged in on multiple devices, you can force a logout on all
-          of them.
+          {t("sessionsDescription")}
         </p>
 
         <div className="w-fit">

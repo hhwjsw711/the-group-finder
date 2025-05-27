@@ -9,9 +9,11 @@ import { MarkReadAllButton } from "./mark-read-button";
 import { ViewButton } from "./view-button";
 import { ClearReadButton } from "./clear-read-button";
 import { getNotificationIcon } from "@/util/notifications";
+import { getTranslations } from "next-intl/server";
 
 export default async function NotificationsPage() {
   const user = await getCurrentUser();
+  const t = await getTranslations("notifications");
 
   if (!user) {
     return null;
@@ -26,7 +28,7 @@ export default async function NotificationsPage() {
           <h1
             className={cn(pageTitleStyles, "flex justify-between items-center")}
           >
-            Your Notifications
+            {t("title")}
           </h1>
 
           <div className="flex flex-wrap gap-2 w-full sm:w-auto">
@@ -51,7 +53,7 @@ export default async function NotificationsPage() {
                 height="200"
                 alt="no image placeholder image"
               ></Image>
-              <h2 className="text-2xl">You have no notifications</h2>
+              <h2 className="text-2xl">{t("noNotifications")}</h2>
             </div>
           )}
 

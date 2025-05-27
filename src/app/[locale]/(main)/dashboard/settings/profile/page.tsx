@@ -21,7 +21,7 @@ export default async function SettingsPage() {
         <ProfileName />
       </div>
 
-      <ConfigurationPanel title="Profile Bio">
+      <ConfigurationPanel title={t("profileBio")}>
         <Suspense fallback={<Skeleton className="w-full h-[400px] rounded" />}>
           <BioFormWrapper />
         </Suspense>

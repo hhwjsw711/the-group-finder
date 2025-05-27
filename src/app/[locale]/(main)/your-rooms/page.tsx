@@ -5,18 +5,20 @@ import { UserRoomCard } from "./user-room-card";
 import { unstable_noStore } from "next/cache";
 import Image from "next/image";
 import { assertAuthenticated } from "@/lib/session";
+import { getTranslations } from "next-intl/server";
 
 export default async function YourRoomsPage() {
   unstable_noStore();
   const user = await assertAuthenticated();
   const rooms = await getUserRooms(user.id);
+  const t = await getTranslations("yourRooms");
 
   return (
     <main className="min-h-screen p-16">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl">Your Rooms</h1>
+        <h1 className="text-4xl">{t("title")}</h1>
         <Button asChild>
-          <Link href="/create-room">Create Room</Link>
+          <Link href="/create-room">{t("createRoomButton")}</Link>
         </Button>
       </div>
 
@@ -35,10 +37,10 @@ export default async function YourRoomsPage() {
             alt="no data image"
           />
 
-          <h2 className="text-2xl">You have no rooms</h2>
+          <h2 className="text-2xl">{t("noRooms")}</h2>
 
           <Button asChild>
-            <Link href="/create-room">Create Room</Link>
+            <Link href="/create-room">{t("createRoomButton")}</Link>
           </Button>
         </div>
       )}

@@ -376,10 +376,98 @@
       "profile": {
         "theme": "Theme",
         "language": "Language",
+        "profileBio": "Profile Bio",
         "toggleMode": "Toggle mode",
-        "changeLanguage": "Change language"
+        "changeLanguage": "Change language",
+        "error": "Uh-oh",
+        "success": "Success",
+        "profileBioUpdated": "Your profile bio has been updated.",
+        "profileBioUpdateFailed": "Your profile bio failed to update.",
+        "saveChanges": "Save Changes",
+        "profileImageUpdateFailed": "Your profile image failed to update.",
+        "profileImageUpdated": "Your profile image has been updated.",
+        "image": "Image",
+        "imageTooLarge": "Your image was too large. It must be under 5MB",
+        "upload": "Upload",
+        "profileImage": "Profile Image",
+        "profileImageAlt": "Profile image",
+        "displayName": "Display Name",
+        "profileNameUpdated": "Your profile name has been updated.",
+        "profileNameUpdateFailed": "Your profile name failed to update."
+      },
+      "security": {
+        "sessions": "Sessions",
+        "sessionsDescription": "If you're logged in on multiple devices, you can force a logout on all of them.",
+        "logoutAllDevices": "Logout of all Sessions"
+      },
+      "subscription": {
+        "manageSubscription": "Manage Subscription",
+        "manageSubscriptionDescription": "You can upgrade or cancel your subscription below",
+        "manageSubscriptionButton": "Manage Subscription",
+        "currentPlan": "You are currently using the {plan} plan."
       }
-    }
+    },
+    "members": "Members",
+    "manageGroup": "Manage Group",
+    "viewGroup": "View Group"
+  },
+  "editRoom": {
+    "editRoom": "Edit Room",
+    "roomNotFound": "Room not found",
+    "title": "Create Room",
+    "name": "Name",
+    "description": "Description",
+    "githubProject": "Github Project",
+    "tags": "Tags",
+    "submit": "Submit",
+    "roomUpdated": "Room Updated",
+    "roomUpdatedDescription": "Your room was successfully updated",
+    "nameDescription": "This is your public room name.",
+    "descriptionDescription": "Please describe what you are be coding on",
+    "githubProjectDescription": "Please put a link to the project you are working on",
+    "tagsDescription": "List your programming languages, frameworks, libraries so people can find you content",
+    "namePlaceholder": "The Group Finder Is Awesome",
+    "descriptionPlaceholder": "Im working on a side project, come join me",
+    "githubProjectPlaceholder": "https://github.com/hhwjsw711/the-group-finder",
+    "tagsPlaceholder": "typescript, nextjs, tailwind"
+  },
+  "invites": {
+    "processingInvites": "Processing Invites",
+    "processingInvitesDescription": "Someone sent you an invite, but you need to first login to accept it. Click the button below to get started.",
+    "signInToAcceptInvite": "Login to Accept Invite",
+    "invalidInviteLink": "Invalid invite link"
+  },
+  "notifications": {
+    "title": "Your Notifications",
+    "noNotifications": "You have no notifications",
+    "view": "View",
+    "read": "Read",
+    "clearReadNotifications": "Clear Read Notifications",
+    "clearReadNotificationsTitle": "Are you sure?",
+    "clearReadNotificationsDescription": "This will permanently clear all your read notifications from the system.",
+    "clearNotifications": "Clear Notifications",
+    "success": "Success",
+    "cancel": "Cancel",
+    "readMessagesCleared": "Read messages were cleared.",
+    "markAllAsRead": "Mark all as read",
+    "allMessagesMarkedAsRead": "All messages were marked as read."
+  },
+  "rooms": {
+    "userProfileNotFound": "User profile not found",
+    "roomNotFound": "No room of this ID found",
+    "githubProject": "Github Project"
+  },
+  "yourRooms": {
+    "title": "Your Rooms",
+    "noRooms": "You have no rooms",
+    "createRoomButton": "Create Room",
+    "deleteRoom": "Delete Room",
+    "deleteRoomDescription": "This action cannot be undone. This will permanently remove the room and any data associated with it.",
+    "deleteRoomTitle": "Are you absolutely sure?",
+    "deleteRoomButton": "Yes, delete",
+    "joinRoom": "Join Room",
+    "githubProject": "Github Project",
+    "cancel": "Cancel"
   },
   "error": {
     "authenticationErrorTitle": "Oops! You Need to Be Logged In",
@@ -391,5 +479,10 @@
     "profile": {
       "editProfile": "Edit your Profile"
     }
+  },
+  "signedOut": {
+    "success": "Successfully Signed Out",
+    "successDescription": "You have been successfully signed out. You can now sign in to your account.",
+    "signIn": "Sign In"
   }
 }

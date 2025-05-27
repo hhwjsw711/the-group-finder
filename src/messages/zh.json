@@ -376,10 +376,98 @@
       "profile": {
         "theme": "主题",
         "language": "语言",
+        "profileBio": "个人简介",
         "toggleMode": "切换模式",
-        "changeLanguage": "更改语言"
+        "changeLanguage": "更改语言",
+        "error": "哎呀",
+        "success": "成功",
+        "profileBioUpdated": "你的个人简介已更新。",
+        "profileBioUpdateFailed": "你的个人简介更新失败。",
+        "saveChanges": "保存更改",
+        "profileImageUpdateFailed": "你的个人资料图片更新失败。",
+        "profileImageUpdated": "你的个人资料图片已更新。",
+        "image": "图片",
+        "imageTooLarge": "你的图片太大了。它必须小于5MB",
+        "upload": "上传",
+        "profileImage": "个人资料图片",
+        "profileImageAlt": "个人资料图片",
+        "displayName": "显示名称",
+        "profileNameUpdateFailed": "你的显示名称更新失败。",
+        "profileNameUpdated": "你的显示名称已更新。"
+      },
+      "security": {
+        "sessions": "会话",
+        "sessionsDescription": "如果你在多个设备上登录，你可以强制所有设备退出。",
+        "logoutAllDevices": "退出所有会话"
+      },
+      "subscription": {
+        "manageSubscription": "管理订阅",
+        "manageSubscriptionDescription": "你可以在这里升级或取消你的订阅",
+        "manageSubscriptionButton": "管理订阅",
+        "currentPlan": "你目前使用的是 {plan} 计划。"
       }
-    }
+    },
+    "members": "成员",
+    "manageGroup": "管理小组",
+    "viewGroup": "查看小组"
+  },
+  "editRoom": {
+    "editRoom": "编辑房间",
+    "roomNotFound": "房间未找到",
+    "title": "创建房间",
+    "name": "名称",
+    "description": "描述",
+    "githubProject": "Github 项目",
+    "tags": "标签",
+    "submit": "提交",
+    "roomUpdated": "房间已更新",
+    "roomUpdatedDescription": "你的房间已成功更新",
+    "nameDescription": "这是你的公开房间名称。",
+    "descriptionDescription": "请描述你正在编码的内容",
+    "githubProjectDescription": "请输入你正在工作的项目链接",
+    "tagsDescription": "列出你的编程语言、框架、库，以便人们可以找到你的内容",
+    "namePlaceholder": "The Group Finder 很棒",
+    "descriptionPlaceholder": "我正在做一个业余项目，来加入我吧",
+    "githubProjectPlaceholder": "https://github.com/hhwjsw711/the-group-finder",
+    "tagsPlaceholder": "typescript, nextjs, tailwind"
+  },
+  "invites": {
+    "processingInvites": "处理邀请",
+    "processingInvitesDescription": "有人给你发送了一个邀请，但你需要先登录才能接受它。点击下面的按钮开始。",
+    "signInToAcceptInvite": "登录接受邀请",
+    "invalidInviteLink": "无效的邀请链接"
+  },
+  "notifications": {
+    "title": "你的通知",
+    "noNotifications": "你没有新的通知",
+    "view": "查看",
+    "read": "已读",
+    "clearReadNotifications": "清除已读通知",
+    "clearReadNotificationsTitle": "你确定吗？",
+    "clearReadNotificationsDescription": "这将永久清除你所有的已读通知。",
+    "clearNotifications": "清除通知",
+    "success": "成功",
+    "cancel": "取消",
+    "readMessagesCleared": "已读消息已清除。",
+    "markAllAsRead": "全部标记为已读",
+    "allMessagesMarkedAsRead": "所有消息已标记为已读。"
+  },
+  "rooms": {
+    "userProfileNotFound": "用户资料未找到",
+    "roomNotFound": "没有找到此ID的房间",
+    "githubProject": "Github 项目"
+  },
+  "yourRooms": {
+    "title": "你的房间",
+    "noRooms": "你没有房间",
+    "createRoomButton": "创建房间",
+    "deleteRoom": "删除房间",
+    "deleteRoomDescription": "此操作无法撤销。这将永久删除房间及其所有相关数据。",
+    "deleteRoomTitle": "你真的确定吗？",
+    "deleteRoomButton": "是的，删除",
+    "joinRoom": "加入房间",
+    "githubProject": "Github 项目",
+    "cancel": "取消"
   },
   "error": {
     "authenticationErrorTitle": "哎呀，你需要先登录",
@@ -391,5 +479,10 @@
     "profile": {
       "editProfile": "编辑你的个人资料"
     }
+  },
+  "signedOut": {
+    "success": "成功登出",
+    "successDescription": "你已成功登出。你可以现在登录你的账户。",
+    "signIn": "登录"
   }
 }

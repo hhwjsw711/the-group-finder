@@ -7,13 +7,15 @@ import Link from "next/link";
 import { readNotificationAction } from "./actions";
 import { useServerAction } from "zsa-react";
 import { LoaderButton } from "@/components/loader-button";
+import { useTranslations } from "next-intl";
 
 export function ViewButton({ notification }: { notification: Notification }) {
   const { execute, isPending } = useServerAction(readNotificationAction);
+  const t = useTranslations("notifications");
 
   return notification.isRead ? (
     <Button className="ml-auto" asChild variant={"secondary"}>
-      <Link href={getNotificationLink(notification)}>View</Link>
+      <Link href={getNotificationLink(notification)}>{t("view")}</Link>
     </Button>
   ) : (
     <LoaderButton
@@ -23,7 +25,7 @@ export function ViewButton({ notification }: { notification: Notification }) {
         execute({ notificationId: notification.id });
       }}
     >
-      Read
+      {t("read")}
     </LoaderButton>
   );
 }

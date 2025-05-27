@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -25,8 +26,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { deleteRoomAction } from "./actions";
+import { useTranslations } from "next-intl";
 
 export function UserRoomCard({ room }: { room: Room }) {
+  const t = useTranslations("yourRooms");
+
   return (
     <Card>
       <CardHeader className="relative">
@@ -48,37 +52,36 @@ export function UserRoomCard({ room }: { room: Room }) {
             rel="noopener noreferrer"
           >
             <GithubIcon />
-            Github Project
+            {t("githubProject")}
           </Link>
         )}
       </CardContent>
       <CardFooter className="flex gap-2">
         <Button asChild>
-          <Link href={`/rooms/${room.id}`}>Join Room</Link>
+          <Link href={`/rooms/${room.id}`}>{t("joinRoom")}</Link>
         </Button>
 
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant={"destructive"}>
-              <TrashIcon className="w-4 h-4 mr-2" /> Delete Room
+              <TrashIcon className="w-4 h-4 mr-2" /> {t("deleteRoom")}
             </Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogTitle>{t("deleteRoomTitle")}</AlertDialogTitle>
               <AlertDialogDescription>
-                This action cannot be undone. This will permanently remove the
-                room and any data associated with it.
+                {t("deleteRoomDescription")}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => {
                   deleteRoomAction(room.id);
                 }}
               >
-                Yes, delete
+                {t("deleteRoomButton")}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

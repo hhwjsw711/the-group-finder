@@ -6,16 +6,18 @@ import { LoaderButton } from "@/components/loader-button";
 import { CheckCheckIcon } from "lucide-react";
 import { btnIconStyles, btnStyles } from "@/styles/icons";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslations } from "next-intl";
 
 export function MarkReadAllButton() {
   const { toast } = useToast();
+  const t = useTranslations("notifications");
   const { execute, isPending } = useServerAction(
     markAllNotificationsAsReadAction,
     {
       onSuccess: () => {
         toast({
-          title: "Success",
-          description: "All messages were marked as read.",
+          title: t("success"),
+          description: t("allMessagesMarkedAsRead"),
         });
       },
     }
@@ -29,7 +31,7 @@ export function MarkReadAllButton() {
       }}
       className={btnStyles}
     >
-      <CheckCheckIcon className={btnIconStyles} /> Mark all as read
+      <CheckCheckIcon className={btnIconStyles} /> {t("markAllAsRead")}
     </LoaderButton>
   );
 }

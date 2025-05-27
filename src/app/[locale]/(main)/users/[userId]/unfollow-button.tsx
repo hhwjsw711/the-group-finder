@@ -7,22 +7,24 @@ import { UserId } from "@/use-cases/types";
 import { LoaderButton } from "@/components/loader-button";
 import { UserMinus } from "lucide-react";
 import { btnIconStyles, btnStyles } from "@/styles/icons";
+import { useTranslations } from "next-intl";
 
 export function UnfollowButton({ foreignUserId }: { foreignUserId: UserId }) {
   const { toast } = useToast();
+  const t = useTranslations("users");
 
   const { execute, isPending } = useServerAction(unfollowUserAction, {
     onSuccess() {
       toast({
-        title: "Success",
-        description: "You've unfollowed that user.",
+        title: t("unfollowSuccess"),
+        description: t("unfollowSuccessDescription"),
       });
     },
     onError() {
       toast({
-        title: "Uh oh",
+        title: t("unfollowErrorTitle"),
         variant: "destructive",
-        description: "Something went wrong trying to unfollow.",
+        description: t("unfollowErrorDescription"),
       });
     },
   });
@@ -34,7 +36,7 @@ export function UnfollowButton({ foreignUserId }: { foreignUserId: UserId }) {
       isLoading={isPending}
       variant={"destructive"}
     >
-      <UserMinus className={btnIconStyles} /> Unfollow
+      <UserMinus className={btnIconStyles} /> {t("unfollowButton")}
     </LoaderButton>
   );
 }

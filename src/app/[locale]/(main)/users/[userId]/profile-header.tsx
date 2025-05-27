@@ -14,7 +14,7 @@ import { UserId } from "@/use-cases/types";
 import { getTranslations } from "next-intl/server";
 
 export async function ProfileHeader({ userId }: { userId: UserId }) {
-  const t = await getTranslations("users.profile");
+  const t = await getTranslations("users");
   const user = await getCurrentUser();
   const profile = await getUserProfileUseCase(userId);
   const isOwnProfile = user?.id === userId;
@@ -51,7 +51,7 @@ export async function ProfileHeader({ userId }: { userId: UserId }) {
           {isOwnProfile && (
             <Button asChild className={btnStyles}>
               <Link href={`/dashboard/settings/profile`}>
-                <SquareUser className={btnIconStyles} /> {t("editProfile")}
+                <SquareUser className={btnIconStyles} /> {t("editProfileButton")}
               </Link>
             </Button>
           )}

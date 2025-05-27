@@ -14,6 +14,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { getGroupById } from "@/data-access/groups";
 import { cardStyles, linkStyles } from "@/styles/common";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
 function PostAvatarFallback() {
   return (
@@ -46,6 +47,7 @@ export async function UserPostCard({ post }: { post: Post }) {
   const canDeletePost = await canEditPostUseCase(user, post.id);
   const replyCount = await getReplyCountUseCase(user, post.id);
   const group = (await getGroupById(post.groupId))!;
+  const t = await getTranslations("users");
 
   return (
     <div className={cn(cardStyles, "p-4 flex flex-col gap-4")}>
@@ -78,13 +80,13 @@ export async function UserPostCard({ post }: { post: Post }) {
           {canDeletePost ? (
             <Button asChild className="w-full sm:w-fit">
               <Link href={`/dashboard/groups/${post.groupId}/posts/${post.id}`}>
-                Manage post...
+                {t("managePostButton")}
               </Link>
             </Button>
           ) : (
             <Button asChild className="w-full sm:w-fit" variant={"secondary"}>
               <Link href={`/dashboard/groups/${post.groupId}/posts/${post.id}`}>
-                Read post...
+                {t("readPostButton")}
               </Link>
             </Button>
           )}

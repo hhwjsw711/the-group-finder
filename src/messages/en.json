@@ -187,7 +187,7 @@
         "leaveGroupConfirmDescription": "Are you sure you want to leave this group? If it was a private group an admin will need to reinvite you.",
         "yesLeaveGroup": "Yes, leave group",
         "success": "Success",
-        "youLeftGroup":"You left this group.",
+        "youLeftGroup": "You left this group.",
         "cancel": "Cancel"
       },
       "join": {
@@ -357,7 +357,7 @@
         "danger": "Danger"
       },
       "accountSettings": "Account Settings",
-      "switchToProfile": "Switch to Profile",
+      "switchToProfileButton": "Switch to Profile",
       "danger": {
         "deleteAccount": "Delete Account",
         "deleteAccountDescription": "You can delete your account below",
@@ -476,9 +476,33 @@
     "signIn": "Sign In"
   },
   "users": {
-    "profile": {
-      "editProfile": "Edit your Profile"
-    }
+    "tabs": {
+      "bio": "Bio",
+      "recentPosts": "Recent Posts",
+      "groups": "Groups",
+      "followers": "Followers"
+    },
+    "editProfileButton": "Edit your Profile",
+    "unfollowButton": "Unfollow",
+    "unfollowSuccess": "Success",
+    "unfollowSuccessDescription": "You've unfollowed that user.",
+    "unfollowErrorTitle": "Uh-oh",
+    "unfollowErrorDescription": "Something went wrong trying to unfollow.",
+    "followButton": "Follow",
+    "followSuccess": "Success",
+    "followSuccessDescription": "You've followed that user.",
+    "followErrorTitle": "Uh-oh",
+    "followErrorDescription": "Something went wrong trying to follow.",
+    "noFollowers": "This user has no followers",
+    "noGroups": "This user isn't part of any groups",
+    "viewGroupButton": "View Group",
+    "noGroupsPlaceholderImageAlt": "no groups placeholder image",
+    "noBio": "This user has no bio",
+    "noBioPlaceholderImageAlt": "no bio placeholder image",
+    "noPosts": "This user has no posts yet",
+    "noPostsPlaceholderImageAlt": "no posts placeholder image",
+    "managePostButton": "Manage post",
+    "readPostButton": "Read post"
   },
   "signedOut": {
     "success": "Successfully Signed Out",

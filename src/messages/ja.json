@@ -56,7 +56,7 @@
     "checkYourEmail": "メールを確認してください",
     "magicLinkSentDescription": "サインイン用のマジックリンクを送信しました。メール内のリンクをクリックしてサインインしてください。",
     "expiredToken": "トークンの有効期限切れ",
-    "expiredTokenDescription": "申し訳ありませんが、このトークンは有効期限が切れているか、すでに使用されています。再度ログインを試してください",
+    "expiredTokenDescription": "申し訳ありませんが、このトークンは有効期限が切れているか、すでに使用されています。再度ログインを試してください。",
     "signUp": "サインアップ"
   },
   "pricing": {
@@ -92,7 +92,7 @@
       "title": "興味ありませんか？ご心配なく",
       "description": "プレミアムスターターキットの準備ができるまで、下の無料スターターキットをご確認ください",
       "checkoutFreeStarterKit": "私の無料Next.jsスターターキットを見る",
-      "letLandingPageConvincedYou": "ランディングページで説得させてください"
+      "letLandingPageConvincedYou": "ランディングページで納得させてください"
     }
   },
   "modeToggle": {
@@ -152,7 +152,7 @@
     "groupCreated": "グループが作成されました",
     "groupCreatedDescription": "これでイベントの管理を開始できます",
     "somethingWentWrong": "おっと、何か問題が発生しました",
-    "noImageAlt": "画像プレースホルダー画像なし",
+    "noImageAlt": "画像プレースホルダー",
     "danger": {
       "title": "危険",
       "deleteGroupTitle": "このグループを削除",
@@ -179,7 +179,7 @@
       "notFound": {
         "title": "おっと、このルートは見つかりませんでした",
         "viewGroupInfo": "グループ情報を表示",
-        "noImageAlt": "画像プレースホルダー画像なし"
+        "noImageAlt": "画像プレースホルダー"
       },
       "leave": {
         "leaveGroupButton": "グループを退会",
@@ -247,7 +247,266 @@
         "imageUpdatedSuccessfully": "グループ画像を正常に更新しました。",
         "image": "画像",
         "upload": "アップロード"
+      },
+      "posts": {
+        "title": "投稿",
+        "noPostsCreatedYet": "まだ投稿がありません",
+        "createPost": "投稿を作成",
+        "createPostDescription": "下のフォームに入力して投稿を作成してください。",
+        "createPostButton": "投稿を作成",
+        "postTitle": "投稿のタイトル",
+        "postMessage": "投稿メッセージ",
+        "errorCreatingPost": "投稿の作成中にエラーが発生しました",
+        "success": "成功",
+        "postCreatedSuccessfully": "投稿が正常に作成されました。",
+        "error": "おっと",
+        "somethingWentWrongCreatingPost": "投稿の作成中に何か問題が発生しました。",
+        "deletePost": "投稿を削除",
+        "deletePostDescription": "この投稿を削除してもよろしいですか？",
+        "deletePostButton": "投稿を削除",
+        "postDeletedSuccessfully": "投稿が正常に削除されました。",
+        "cancel": "キャンセル",
+        "managePostButton": "投稿を管理",
+        "readPostButton": "投稿を読む",
+        "backToPosts": "投稿一覧へ戻る",
+        "replies": "返信",
+        "postUpdatedSuccessfully": "投稿が正常に更新されました。",
+        "somethingWentWrongUpdatingPost": "投稿の更新中に何か問題が発生しました。",
+        "updatePostButton": "投稿を更新",
+        "errorUpdatingPost": "投稿の更新中にエラーが発生しました",
+        "replyCreatedSuccessfully": "返信が正常に作成されました。",
+        "somethingWentWrongCreatingReply": "返信の作成中に何か問題が発生しました。",
+        "replyMessage": "メッセージ",
+        "errorCreatingReply": "返信の作成中にエラーが発生しました",
+        "updateReplyButton": "返信を更新",
+        "postReplyButton": "返信する",
+        "replyDeletedSuccessfully": "返信が削除されました",
+        "editReply": "返信を編集",
+        "updateReplyMessage": "返信のメッセージを更新",
+        "deleteReply": "返信を削除",
+        "deleteReplyDescription": "この返信を削除してもよろしいですか？",
+        "deleteReplyButton": "返信を削除",
+        "editReplyButton": "返信を編集",
+        "openMenu": "メニューを開く"
+      },
+      "members": {
+        "title": "メンバー",
+        "members": "メンバー",
+        "owner": "オーナー",
+        "admin": "管理者",
+        "kickMember": "メンバーを追放",
+        "kickMemberDescription": "このメンバーをグループから追放してもよろしいですか？",
+        "kickMemberButton": "はい、追放します",
+        "promoteToAdmin": "管理者に昇格",
+        "demoteToMember": "メンバーに降格",
+        "kick": "追放",
+        "cancel": "キャンセル"
+      },
+      "info": {
+        "title": "情報",
+        "saveChanges": "変更を保存",
+        "groupInfoUpdated": "グループ情報が更新されました。",
+        "groupInfoUpdateFailed": "グループ情報の更新に失敗しました。",
+        "error": "おっと",
+        "success": "成功",
+        "groupNotFound": "グループが見つかりません"
+      },
+      "groupNotFound": "グループが見つかりません",
+      "events": {
+        "title": "イベント",
+        "noEventsCreatedYet": "まだイベントが作成されていません",
+        "noUpcomingEventsFound": "今後のイベントは見つかりませんでした",
+        "noExpiredEventsFound": "期限切れのイベントは見つかりませんでした",
+        "upcoming": "今後",
+        "expired": "期限切れ",
+        "createEvent": "イベントを作成",
+        "createEventDescription": "下のフォームに入力してイベントを作成してください。",
+        "createEventButton": "イベントを作成",
+        "eventCreationFailed": "イベントの作成中に何か問題が発生しました。",
+        "eventCreatedSuccessfully": "イベントが正常に作成されました。",
+        "error": "おっと",
+        "success": "成功",
+        "imageTooLarge": "画像サイズが大きすぎます。5MB未満にしてください。",
+        "eventName": "イベント名",
+        "eventDescription": "イベントの説明",
+        "eventDate": "イベント日",
+        "pickADate": "日付を選択",
+        "eventTime": "イベント時間",
+        "hours": "時",
+        "minutes": "分",
+        "seconds": "秒",
+        "period": "期間",
+        "image": "画像",
+        "errorCreatingEvent": "イベント作成エラー",
+        "editEvent": "イベントを編集",
+        "editEventDescription": "イベント詳細を編集",
+        "deleteEvent": "イベントを削除",
+        "deleteEventDescription": "このイベントを削除してもよろしいですか？メンバーが混乱したり、動揺したりする可能性があります。",
+        "delete": "削除",
+        "eventUpdatedSuccessfully": "イベントが正常に更新されました。",
+        "eventUpdateFailed": "イベントの更新中に何か問題が発生しました。",
+        "saveUpdates": "更新を保存",
+        "errorUpdatingEvent": "イベント更新エラー"
       }
-    }
+    },
+    "settings": {
+      "tabs": {
+        "profile": "プロフィール",
+        "security": "セキュリティ",
+        "subscription": "サブスクリプション",
+        "danger": "危険"
+      },
+      "accountSettings": "アカウント設定",
+      "switchToProfileButton": "プロフィールに切り替え",
+      "danger": {
+        "deleteAccount": "アカウントを削除",
+        "deleteAccountDescription": "以下でアカウントを削除できます",
+        "deleteAccountButton": "アカウントを削除",
+        "deleteAccountConfirmation": "確認のため「Please delete」と入力してください",
+        "deleteAccountSuccessTitle": "アカウント削除済み",
+        "deleteAccountSuccessDescription": "アカウントが正常に削除されました。",
+        "deleteAccountErrorTitle": "エラー",
+        "deleteAccountErrorDescription": "アカウントの削除に失敗しました。",
+        "deleteAccountConfirmTitle": "よろしいですか？",
+        "deleteAccountConfirmDescription": "アカウントを削除すると、将来データを復元できなくなります。確認のため「Please delete」と入力してください。",
+        "cancel": "キャンセル",
+        "delete": "削除",
+        "confirm": "確認"
+      },
+      "profile": {
+        "theme": "テーマ",
+        "language": "言語",
+        "profileBio": "自己紹介",
+        "toggleMode": "モードを切り替え",
+        "changeLanguage": "言語を変更",
+        "error": "おっと",
+        "success": "成功",
+        "profileBioUpdated": "自己紹介が更新されました。",
+        "profileBioUpdateFailed": "自己紹介の更新に失敗しました。",
+        "saveChanges": "変更を保存",
+        "profileImageUpdateFailed": "プロフィール画像の更新に失敗しました。",
+        "profileImageUpdated": "プロフィール画像が更新されました。",
+        "image": "画像",
+        "imageTooLarge": "画像サイズが大きすぎます。5MB未満にしてください。",
+        "upload": "アップロード",
+        "profileImage": "プロフィール画像",
+        "profileImageAlt": "プロフィール画像",
+        "displayName": "表示名",
+        "profileNameUpdated": "表示名が更新されました。",
+        "profileNameUpdateFailed": "表示名の更新に失敗しました。"
+      },
+      "security": {
+        "sessions": "セッション",
+        "sessionsDescription": "複数のデバイスでログインしている場合、すべてのデバイスから強制的にログアウトできます。",
+        "logoutAllDevices": "すべてのセッションからログアウト"
+      },
+      "subscription": {
+        "manageSubscription": "サブスクリプションを管理",
+        "manageSubscriptionDescription": "以下でサブスクリプションをアップグレードまたはキャンセルできます",
+        "manageSubscriptionButton": "サブスクリプションを管理",
+        "currentPlan": "現在 {plan} プランをご利用中です。"
+      }
+    },
+    "members": "メンバー",
+    "manageGroup": "グループを管理",
+    "viewGroup": "グループを見る"
+  },
+  "editRoom": {
+    "editRoom": "ルームを編集",
+    "roomNotFound": "ルームが見つかりません",
+    "title": "ルームを編集",
+    "name": "名前",
+    "description": "説明",
+    "githubProject": "GitHubプロジェクト",
+    "tags": "タグ",
+    "submit": "送信",
+    "roomUpdated": "ルームが更新されました",
+    "roomUpdatedDescription": "ルームが正常に更新されました",
+    "nameDescription": "これはあなたの公開ルーム名です。",
+    "descriptionDescription": "コーディング内容を説明してください",
+    "githubProjectDescription": "作業しているプロジェクトへのリンクを貼り付けてください",
+    "tagsDescription": "プログラミング言語、フレームワーク、ライブラリをリストして、人々があなたのコンテンツを見つけられるようにしてください",
+    "namePlaceholder": "グループファインダーは最高です",
+    "descriptionPlaceholder": "サイドプロジェクトに取り組んでいます。ぜひ参加してください",
+    "githubProjectPlaceholder": "https://github.com/hhwjsw711/the-group-finder",
+    "tagsPlaceholder": "TypeScript, Next.js, Tailwind"
+  },
+  "invites": {
+    "processingInvites": "招待を処理中",
+    "processingInvitesDescription": "誰かがあなたに招待を送りましたが、承諾するにはまずログインする必要があります。下のボタンをクリックして開始してください。",
+    "signInToAcceptInvite": "ログインして招待を承諾",
+    "invalidInviteLink": "無効な招待リンク"
+  },
+  "notifications": {
+    "title": "あなたの通知",
+    "noNotifications": "通知はありません",
+    "view": "表示",
+    "read": "既読",
+    "clearReadNotifications": "既読の通知をクリア",
+    "clearReadNotificationsTitle": "よろしいですか？",
+    "clearReadNotificationsDescription": "これにより、システムからすべての既読の通知が完全にクリアされます。",
+    "clearNotifications": "通知をクリア",
+    "success": "成功",
+    "cancel": "キャンセル",
+    "readMessagesCleared": "既読のメッセージがクリアされました。",
+    "markAllAsRead": "すべて既読にする",
+    "allMessagesMarkedAsRead": "すべてのメッセージが既読としてマークされました。"
+  },
+  "rooms": {
+    "userProfileNotFound": "ユーザープロフィールが見つかりません",
+    "roomNotFound": "このIDのルームは見つかりません",
+    "githubProject": "GitHubプロジェクト"
+  },
+  "yourRooms": {
+    "title": "あなたのルーム",
+    "noRooms": "ルームはありません",
+    "createRoomButton": "ルームを作成",
+    "deleteRoom": "ルームを削除",
+    "deleteRoomDescription": "この操作は元に戻せません。これにより、ルームとそれに関連するすべてのデータが完全に削除されます。",
+    "deleteRoomTitle": "本当によろしいですか？",
+    "deleteRoomButton": "はい、削除します",
+    "joinRoom": "ルームに参加",
+    "githubProject": "GitHubプロジェクト",
+    "cancel": "キャンセル"
+  },
+  "error": {
+    "authenticationErrorTitle": "おっと！ログインが必要です",
+    "authenticationErrorDescription": "このページにアクセスするには、まずログインしてください。",
+    "somethingWentWrong": "おっと！何か問題が発生しました",
+    "signIn": "サインイン"
+  },
+  "users": {
+    "tabs": {
+      "bio": "自己紹介",
+      "recentPosts": "最近の投稿",
+      "groups": "グループ",
+      "followers": "フォロワー"
+    },
+    "editProfileButton": "プロフィールを編集",
+    "unfollowButton": "フォロー解除",
+    "unfollowSuccess": "成功",
+    "unfollowSuccessDescription": "そのユーザーのフォローを解除しました。",
+    "unfollowErrorTitle": "おっと",
+    "unfollowErrorDescription": "フォロー解除中に何か問題が発生しました。",
+    "followButton": "フォローする",
+    "followSuccess": "成功",
+    "followSuccessDescription": "そのユーザーをフォローしました。",
+    "followErrorTitle": "おっと",
+    "followErrorDescription": "フォロー中に何か問題が発生しました。",
+    "noFollowers": "このユーザーにはフォロワーがいません",
+    "noGroups": "このユーザーはどのグループにも参加していません",
+    "viewGroupButton": "グループを見る",
+    "noGroupsPlaceholderImageAlt": "グループなしのプレースホルダー",
+    "noBio": "このユーザーには自己紹介がありません",
+    "noBioPlaceholderImageAlt": "自己紹介なしのプレースホルダー",
+    "noPosts": "このユーザーにはまだ投稿がありません",
+    "noPostsPlaceholderImageAlt": "投稿なしのプレースホルダー",
+    "managePostButton": "投稿を管理",
+    "readPostButton": "投稿を読む"
+  },
+  "signedOut": {
+    "success": "正常にサインアウトしました",
+    "successDescription": "正常にサインアウトしました。アカウントにサインインできます。",
+    "signIn": "サインイン"
   }
 }

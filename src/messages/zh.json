@@ -357,7 +357,7 @@
         "danger": "危险"
       },
       "accountSettings": "账户设置",
-      "switchToProfile": "切换到个人资料",
+      "switchToProfileButton": "切换到个人资料",
       "danger": {
         "deleteAccount": "删除账户",
         "deleteAccountDescription": "你可以在下方删除你的账户",
@@ -476,9 +476,33 @@
     "signIn": "登录"
   },
   "users": {
-    "profile": {
-      "editProfile": "编辑你的个人资料"
-    }
+    "tabs": {
+      "bio": "个人简介",
+      "recentPosts": "最近帖子",
+      "groups": "小组",
+      "followers": "关注者"
+    },
+    "editProfileButton": "编辑你的个人资料",
+    "unfollowButton": "取消关注",
+    "unfollowSuccess": "成功",
+    "unfollowSuccessDescription": "你已取消关注该用户。",
+    "unfollowErrorTitle": "哎呀",
+    "unfollowErrorDescription": "取消关注时出了问题。",
+    "followButton": "关注",
+    "followSuccess": "成功",
+    "followSuccessDescription": "你已关注该用户。",
+    "followErrorTitle": "哎呀",
+    "followErrorDescription": "关注时出了问题。",
+    "noFollowers": "该用户没有关注者",
+    "noGroups": "该用户不是任何小组的成员",
+    "viewGroupButton": "查看小组",
+    "noGroupsPlaceholderImageAlt": "没有小组占位符图片",
+    "noBio": "该用户没有个人简介",
+    "noBioPlaceholderImageAlt": "没有个人简介占位符图片",
+    "noPosts": "该用户还没有帖子",
+    "noPostsPlaceholderImageAlt": "没有帖子占位符图片",
+    "managePostButton": "管理帖子",
+    "readPostButton": "阅读帖子"
   },
   "signedOut": {
     "success": "成功登出",

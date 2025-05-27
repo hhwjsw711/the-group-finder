@@ -53,7 +53,7 @@ async function SwitchProfileButton() {
   return (
     <Button asChild className={btnStyles}>
       <Link href={`/users/${user!.id}`}>
-        <SquareUser className={btnIconStyles} /> {t("switchToProfile")}
+        <SquareUser className={btnIconStyles} /> {t("switchToProfileButton")}
       </Link>
     </Button>
   );

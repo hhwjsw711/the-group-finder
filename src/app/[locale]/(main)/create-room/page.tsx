@@ -1,8 +1,10 @@
 import { CreateRoomForm } from "./create-room-form";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { assertAuthenticated } from "@/lib/session";
 
-export default function CreateRoomPage() {
-  const t = useTranslations("createRoom");
+export default async function CreateRoomPage() {
+  const t = await getTranslations("createRoom");
+  const user = await assertAuthenticated();
 
   return (
     <div className="container mx-auto flex flex-col gap-8 pt-12 pb-24">

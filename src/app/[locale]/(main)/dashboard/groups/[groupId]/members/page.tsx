@@ -11,6 +11,7 @@ import { Crown, Gavel, Users } from "lucide-react";
 import { MemberCardActions } from "./member-card-actions";
 import { GroupId } from "@/db/schema";
 import { getTranslations } from "next-intl/server";
+import { getProfileImageFullUrl } from "@/app/[locale]/(main)/dashboard/settings/profile/profile-image";
 
 function MemberCard({
   showActions,
@@ -24,6 +25,7 @@ function MemberCard({
     image: string | null;
     name: string | null;
     role: string;
+    imageId: string | null;
   };
 }) {
   return (
@@ -35,7 +37,7 @@ function MemberCard({
         )}
       >
         <Avatar>
-          <AvatarImage src={member.image || "/group.jpeg"} />
+          <AvatarImage src={getProfileImageFullUrl(member)} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <Link href={`/users/${member.userId}/info`}>

@@ -12,7 +12,7 @@ import { UnfollowButton } from "./unfollow-button";
 import { cn } from "@/lib/utils";
 import { UserId } from "@/use-cases/types";
 import { getTranslations } from "next-intl/server";
-
+import { getProfileImageFullUrl } from "@/app/[locale]/(main)/dashboard/settings/profile/profile-image";
 export async function ProfileHeader({ userId }: { userId: UserId }) {
   const t = await getTranslations("users");
   const user = await getCurrentUser();
@@ -31,7 +31,7 @@ export async function ProfileHeader({ userId }: { userId: UserId }) {
         <div className="flex justify-between items-center">
           <div className="flex flex-col items-center md:flex-row gap-8">
             <Image
-              src={profile.image ?? "/group.jpeg"}
+              src={getProfileImageFullUrl(profile)}
               width={60}
               height={60}
               alt="image of the group"

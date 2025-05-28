@@ -138,7 +138,7 @@ export async function getGroupMembers(groupId: GroupId) {
     where: eq(memberships.groupId, groupId),
     with: {
       profile: {
-        columns: { displayName: true, image: true },
+        columns: { displayName: true, image: true, imageId: true },
       },
     },
   });

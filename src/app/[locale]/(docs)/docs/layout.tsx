@@ -9,10 +9,8 @@ export default function DocumentationLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="docs-layout-wrapper">
-      <DocsLayout tree={source.pageTree} {...baseOptions}>
-        {children}
-      </DocsLayout>
-    </div>
+    <DocsLayout tree={source.pageTree} {...baseOptions}>
+      {children}
+    </DocsLayout>
   );
 }

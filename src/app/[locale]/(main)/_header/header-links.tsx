@@ -59,7 +59,7 @@ export function HeaderLinks({ isAuthenticated }: { isAuthenticated: boolean }) {
             </Link>
           </Button>
 
-          <Button
+          {/* <Button
             variant={"link"}
             asChild
             className="flex items-center justify-center gap-2"
@@ -67,7 +67,7 @@ export function HeaderLinks({ isAuthenticated }: { isAuthenticated: boolean }) {
             <Link href={"/docs"}>
               <BookIcon className="w-4 h-4" /> {t("apiDocs")}
             </Link>
-          </Button>
+          </Button> */}
         </div>
       )}
 

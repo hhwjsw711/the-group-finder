@@ -56,14 +56,14 @@ export function MenuButton() {
                 <SearchIcon className="w-4 h-4" /> {t("browseRooms")}
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            {/* <DropdownMenuItem asChild>
               <Link
                 href="/docs"
                 className="flex gap-2 items-center cursor-pointer"
               >
                 <BookIcon className="w-4 h-4" /> {t("apiDocs")}
               </Link>
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
           </>
         )}
         {isLandingPage && (

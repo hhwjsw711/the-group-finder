@@ -136,7 +136,7 @@ async function GroupsList({ search, page }: { search?: string; page: number }) {
             memberCount={group.memberCount.toString()}
             key={group.id}
             group={group}
-            buttonText="View"
+            buttonText={t("viewGroupButton")}
           />
         ))}
       </div>

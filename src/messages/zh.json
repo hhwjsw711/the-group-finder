@@ -105,7 +105,8 @@
     "title": "浏览小组",
     "placeholder": "篮球, 编程, 手工艺, 等等",
     "search": "搜索",
-    "noGroupsMatchingYourSearch": "没有符合你搜索的小组"
+    "noGroupsMatchingYourSearch": "没有符合你搜索的小组",
+    "viewGroupButton": "查看小组"
   },
   "browseRooms": {
     "title": "浏览房间",
@@ -408,8 +409,8 @@
       }
     },
     "members": "成员",
-    "manageGroup": "管理小组",
-    "viewGroup": "查看小组"
+    "manageGroupButton": "管理小组",
+    "viewGroupButton": "查看小组"
   },
   "editRoom": {
     "editRoom": "编辑房间",

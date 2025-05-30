@@ -92,7 +92,7 @@ export default async function DashboardPage() {
               memberCount={group.memberCount.toString()}
               group={group}
               key={group.id}
-              buttonText={t("manageGroup")}
+              buttonText={t("manageGroupButton")}
             />
           ))}
         </div>
@@ -115,7 +115,7 @@ export default async function DashboardPage() {
               memberCount={group.memberCount.toString()}
               group={group}
               key={group.id}
-              buttonText={t("viewGroup")}
+              buttonText={t("viewGroupButton")}
             />
           ))}
         </div>

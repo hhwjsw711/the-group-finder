@@ -105,7 +105,8 @@
     "title": "グループを検索",
     "placeholder": "バスケットボール、プログラミング、クラフトなど",
     "search": "検索",
-    "noGroupsMatchingYourSearch": "検索条件に一致するグループは見つかりませんでした"
+    "noGroupsMatchingYourSearch": "検索条件に一致するグループは見つかりませんでした",
+    "viewGroupButton": "グループを見る"
   },
   "browseRooms": {
     "title": "ルームを検索",
@@ -408,8 +409,8 @@
       }
     },
     "members": "メンバー",
-    "manageGroup": "グループを管理",
-    "viewGroup": "グループを見る"
+    "manageGroupButton": "グループを管理",
+    "viewGroupButton": "グループを見る"
   },
   "editRoom": {
     "editRoom": "ルームを編集",

@@ -105,7 +105,8 @@
     "title": "그룹 둘러보기",
     "placeholder": "농구, 프로그래밍, 공예 등",
     "search": "검색",
-    "noGroupsMatchingYourSearch": "검색과 일치하는 그룹이 없습니다"
+    "noGroupsMatchingYourSearch": "검색과 일치하는 그룹이 없습니다",
+    "viewGroupButton": "그룹 보기"
   },
   "browseRooms": {
     "title": "룸 둘러보기",
@@ -408,8 +409,8 @@
       }
     },
     "members": "멤버",
-    "manageGroup": "그룹 관리",
-    "viewGroup": "그룹 보기"
+    "manageGroupButton": "그룹 관리",
+    "viewGroupButton": "그룹 보기"
   },
   "editRoom": {
     "editRoom": "룸 수정",

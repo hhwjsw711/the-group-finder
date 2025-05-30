@@ -105,7 +105,8 @@
     "title": "瀏覽群組",
     "placeholder": "籃球、編程、手作等等",
     "search": "搜尋",
-    "noGroupsMatchingYourSearch": "搵唔到符合你搜尋條件嘅群組"
+    "noGroupsMatchingYourSearch": "搵唔到符合你搜尋條件嘅群組",
+    "viewGroupButton": "睇群組"
   },
   "browseRooms": {
     "title": "瀏覽房間",
@@ -408,8 +409,8 @@
       }
     },
     "members": "成員",
-    "manageGroup": "管理群組",
-    "viewGroup": "查看群組"
+    "manageGroupButton": "打理群組",
+    "viewGroupButton": "睇群組"
   },
   "editRoom": {
     "editRoom": "編輯房間",
@@ -495,7 +496,7 @@
     "followErrorDescription": "追蹤嗰陣出咗啲問題。",
     "noFollowers": "呢個用戶冇追蹤者",
     "noGroups": "呢個用戶未加入任何群組",
-    "viewGroupButton": "查看群組",
+    "viewGroupButton": "睇群組",
     "noGroupsPlaceholderImageAlt": "冇群組嘅預留圖片",
     "noBio": "呢個用戶冇個人簡介",
     "noBioPlaceholderImageAlt": "冇個人簡介嘅預留圖片",

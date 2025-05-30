@@ -105,7 +105,8 @@
     "title": "Browse Groups",
     "placeholder": "basketball, programming, crafting, etc.",
     "search": "Search",
-    "noGroupsMatchingYourSearch": "No groups matching your search"
+    "noGroupsMatchingYourSearch": "No groups matching your search",
+    "viewGroupButton": "View Group"
   },
   "browseRooms": {
     "title": "Browse Rooms",
@@ -408,8 +409,8 @@
       }
     },
     "members": "Members",
-    "manageGroup": "Manage Group",
-    "viewGroup": "View Group"
+    "manageGroupButton": "Manage Group",
+    "viewGroupButton": "View Group"
   },
   "editRoom": {
     "editRoom": "Edit Room",

@@ -51,6 +51,7 @@ const nextConfig = {
   reactStrictMode: true,
   serverExternalPackages: ["@aws-sdk/s3-request-presigner"],
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -73,12 +74,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "www.thegroupfinder.com",
-        port: "",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "thegroupfinder.com",
         port: "",
         pathname: "**",
       },
